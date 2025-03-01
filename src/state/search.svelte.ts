@@ -1,5 +1,5 @@
 class SearchState {
-	public results = $state([]);
+	public results: any = $state([]);
 	public isActive = $state(false);
 	public settings = $state({});
 }
