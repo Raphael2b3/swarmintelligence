@@ -1,9 +1,9 @@
-export function accordion(node, isOpen) {
+export function accordion(node: any, isOpen: boolean) {
 	let initialHeight = node.offsetHeight;
 	node.style.height = isOpen ? 'auto' : 0;
 	node.style.overflow = 'hidden';
 	return {
-		update(isOpen) {
+		update(isOpen: boolean) {
 			let animation = node.animate(
 				[
 					{
