@@ -1,22 +1,41 @@
 <script lang="ts">
-	import ConnectionRecommendation from '$lib/components/recommendation/ConnectionRecommendation.svelte';
-	import DuplicationRecommendation from '$lib/components/recommendation/DuplicationRecommendation.svelte';
-	import StatementRecommendation from '$lib/components/recommendation/StatementRecommendation.svelte';
-	import RecommendationFilter from '$lib/components/RecommendationFilter.svelte';
-	import ConnectionSearchResult from '$lib/components/searchresult/ConnectionSearchResult.svelte';
-	import DuplicationSearchResult from '$lib/components/searchresult/DuplicationSearchResult.svelte';
-	import StatementSearchResultOnlyText from '$lib/components/searchresult/StatementSearchResultOnlyText.svelte';
+	import ExpandableFilter from '$lib/features/expandable_filter/ExpandableFilter.svelte';
+	import { Statement } from '$lib/features/statement/index.svelte';
+	import { Connection } from '$lib/features/connection/index.svelte';
+	import { Duplication } from '$lib/features/duplication/index.svelte';
 	import {
 		getFallbackConnection,
 		getFallbackDuplication,
 		getFallbackStatement
 	} from '$lib/shared/state/entities.svelte';
-	import { getSearchmode } from '$lib/shared/state/searchmode.svelte';
+	import { uistate } from '$lib/shared/state/searchmode.svelte';
+	import type { IFilterOptions } from '$lib/shared/types';
 
+	let filterOptions: IFilterOptions = $state({
+		entitytype: ['statement'],
+		controversial: true,
+		sortByTruth: 'asc',
+		sortByVotes: 'desc',
+		tags: ['foo'],
+		_tagstring: ''
+	});
 	let randint: number = $state(0);
+
+	const statement = getFallbackStatement();
+	const connection = {
+		...getFallbackConnection(),
+		thesis: statement,
+		argument: statement
+	};
+	const duplication = {
+		...getFallbackDuplication(),
+		statementA: statement,
+		statementB: statement
+	};
 </script>
 
-<RecommendationFilter></RecommendationFilter>
+<ExpandableFilter options={filterOptions} />
+
 <button
 	onclick={() => {
 		randint = (randint + 1) % 3;
@@ -25,26 +44,25 @@
 <div
 	style="flex:1; display:flex; flex-direction: column; justify-content: space-around;  height:0;"
 >
-	{#if !getSearchmode()}
+	{#if !uistate.searching}
 		<div
 			style="flex:1; display:flex; flex-direction: column; justify-content: space-around;  padding-right:3rem; padding-left: 3rem; padding-bottom: 3rem;"
 		>
 			{#if randint === 0}
-				<StatementRecommendation></StatementRecommendation>
+				<Statement.Recommendation {statement} />
 			{:else if randint === 1}
-				<ConnectionRecommendation connection={getFallbackConnection()}></ConnectionRecommendation>
+				<Connection.Recommendation {connection} />
 			{:else}
-				<DuplicationRecommendation></DuplicationRecommendation>
+				<Duplication.Recommendation {duplication} />
 			{/if}
 		</div>
 	{:else}
 		<div style="overflow-y: scroll; padding-right:3rem; padding-left: 3rem; padding-bottom: 3rem;">
 			<div style="display:flex; flex-direction: column; gap: 1rem;">
 				{#each [0, 0, 0, 0, 0] as element}
-					<StatementSearchResultOnlyText statement={getFallbackStatement()}
-					></StatementSearchResultOnlyText>
-					<ConnectionSearchResult connection={getFallbackConnection()}></ConnectionSearchResult>
-					<DuplicationSearchResult duplication={getFallbackDuplication()}></DuplicationSearchResult>
+					<Statement.SearchResultOnlyText {statement} />
+					<Connection.SearchResult {connection} />
+					<Duplication.SearchResult {duplication} />
 				{/each}
 				<button onclick={() => console.log('')}>Didnt find what you wanted? Create it </button>
 			</div>

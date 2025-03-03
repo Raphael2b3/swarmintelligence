@@ -18,7 +18,7 @@ import type {
 	IEntityType,
 	IConnectiveType,
 	IVoteValue
-} from '$lib/shared/interfaces';
+} from '$lib/shared/types';
 import { historyManager } from './history.svelte';
 
 export function getFallbackEntity(entityType: IEntityType) {
@@ -35,8 +35,8 @@ export function getFallbackEntity(entityType: IEntityType) {
 export function getFallbackConnection() {
 	return {
 		id: 'fallback',
-		thesis: 'fallback',
-		argument: 'fallback',
+		thesisId: 'fallback',
+		argumentId: 'fallback',
 		isProArgument: false,
 		weight: 0,
 		numberOfVotes: 0,
@@ -49,8 +49,8 @@ export function getFallbackDuplication() {
 	return {
 		// return Iduplicationmarker
 		id: 'fallback',
-		statementA: 'fallback',
-		statementB: 'fallback',
+		statementAId: 'fallback',
+		statementBId: 'fallback',
 		numberOfVotes: 0,
 		isDuplicateVotes: 0
 	} as IDuplication;
@@ -98,25 +98,24 @@ function getEntityInstancesFromCache(keys: string[], entity: IEntityType) {
 export function getEntity(id: string | undefined, entityType: IEntityType) {
 	if (!id) return getFallbackStatement();
 	console.log('getEntity', id, entityType);
-	let stm: IEntity | IEntity[];
-	stm = getEntityInstancesFromCache([id], entityType);
-	if (stm.length > 0) {
-		console.log('getEntityFromCache', stm);
-		return stm[0];
+	let statements: IEntity[];
+	statements = getEntityInstancesFromCache([id], entityType);
+	if (statements.length > 0) {
+		console.log('getEntityFromCache', statements);
+		return statements[0];
 	}
-	stm = getEntityDB(id, entityType);
-	console.log('getEntityFromDB', stm);
-	if (!stm) return getFallbackEntity(entityType);
-	cacheEntities([stm]);
-
-	return stm;
+	statements = getEntityDB(id, entityType);
+	console.log('getEntityFromDB', statements);
+	if (!statements) return getFallbackEntity(entityType);
+	cacheEntities(statements);
+	return statements[0];
 }
 
 export function getArgumentsFor(id: string, useCache = true) {
 	let _arguments: IConnection[] = getConnectiveFor(id, 'argument', useCache) as IConnection[];
 	const out: { pros: IStatement[]; cons: IStatement[] } = { pros: [], cons: [] };
 	for (const _argument of _arguments) {
-		const statement = getEntity(_argument.argument, 'statement') as IStatement;
+		const statement = getEntity(_argument.argumentId, 'statement') as IStatement;
 		if (_argument.isProArgument) out.pros.push(statement);
 		else out.cons.push(statement);
 	}
@@ -127,7 +126,7 @@ export function getThesisFor(id: string, useCache = true) {
 	let _thesis: IConnection[] = getConnectiveFor(id, 'thesis', useCache) as IConnection[];
 	const out: { pros: IStatement[]; cons: IStatement[] } = { pros: [], cons: [] };
 	for (const _argument of _thesis) {
-		const statement = getEntity(_argument.thesis, 'statement') as IStatement;
+		const statement = getEntity(_argument.thesisId, 'statement') as IStatement;
 		if (_argument.isProArgument) out.pros.push(statement);
 		else out.cons.push(statement);
 	}

@@ -1,6 +1,6 @@
 <script>
-	import FlyOutMenu from '$lib/components/FlyOutMenu.svelte';
-	import Navbar from '$lib/components/Navbar.svelte';
+	import FlyOutMenu from '$lib/features/navigation/FlyOutMenu.svelte';
+	import Searchbar from '$lib/features/searchbar/Searchbar.svelte';
 	let { children } = $props();
 	let openedflyout = $state(true);
 	function onMenuClick() {
@@ -10,7 +10,7 @@
 
 <div style="height: 100vh; display:flex; flex-direction: column;">
 	<nav>
-		<Navbar {onMenuClick} onSearch={() => {}}></Navbar>
+		<Searchbar></Searchbar>
 		<FlyOutMenu bind:open={openedflyout}>
 			<a href="/login">Login</a>
 			<a href="/register">Register</a>
