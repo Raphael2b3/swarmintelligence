@@ -8,8 +8,9 @@
 		getFallbackDuplication,
 		getFallbackStatement
 	} from '$lib/shared/state/entities.svelte';
-	import { uistate } from '$lib/shared/state/searchmode.svelte';
+	import { pisse } from '$lib/shared/state/searchmode.svelte';
 	import type { IFilterOptions } from '$lib/shared/types';
+	import { Button } from '$lib/shared/components/ui/button';
 
 	let filterOptions: IFilterOptions = $state({
 		entitytype: ['statement'],
@@ -36,15 +37,15 @@
 
 <ExpandableFilter options={filterOptions} />
 
-<button
+<Button
 	onclick={() => {
 		randint = (randint + 1) % 3;
-	}}>Refresh</button
+	}}>Refresh</Button
 >
 <div
 	style="flex:1; display:flex; flex-direction: column; justify-content: space-around;  height:0;"
 >
-	{#if !uistate.searching}
+	{#if !pisse.searching}
 		<div
 			style="flex:1; display:flex; flex-direction: column; justify-content: space-around;  padding-right:3rem; padding-left: 3rem; padding-bottom: 3rem;"
 		>
@@ -64,7 +65,7 @@
 					<Connection.SearchResult {connection} />
 					<Duplication.SearchResult {duplication} />
 				{/each}
-				<button onclick={() => console.log('')}>Didnt find what you wanted? Create it </button>
+				<Button onclick={() => console.log('')}>Didnt find what you wanted? Create it</Button>
 			</div>
 		</div>
 	{/if}

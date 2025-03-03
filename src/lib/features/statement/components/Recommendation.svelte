@@ -1,15 +1,16 @@
 <script lang="ts">
+	import { Button } from '$lib/shared/components/ui/button';
 	import type { IStatement } from '$lib/shared/types';
 	let { statement }: { statement: IStatement } = $props();
 </script>
 
 {statement.text}
-<button>ShowMore</button>
-<button>Favourite</button>
-<button>Share</button>
-<button>Connect</button>
-<button>OpenDetails</button>
+<Button>ShowMore</Button>
+<Button>Favourite</Button>
+<Button>Share</Button>
+<Button>Connect</Button>
+<Button>OpenDetails</Button>
 <div style="display: flex; flex: 1; align-items: center; flex-direction: row; gap: 1rem;">
-	<button>False</button>
-	<button>True</button>
+	<Button>False</Button>
+	<Button>True</Button>
 </div>

@@ -1,5 +1,6 @@
 <script lang="ts">
+	import { Button } from '$lib/shared/components/ui/button';
 </script>
 
-<button>Add Argument</button>
-<button>Add This As Argument</button>
+<Button>Add Argument</Button>
+<Button>Add This As Argument</Button>

@@ -98,17 +98,16 @@ function getEntityInstancesFromCache(keys: string[], entity: IEntityType) {
 export function getEntity(id: string | undefined, entityType: IEntityType) {
 	if (!id) return getFallbackStatement();
 	console.log('getEntity', id, entityType);
-	let statements: IEntity[];
-	statements = getEntityInstancesFromCache([id], entityType);
-	if (statements.length > 0) {
-		console.log('getEntityFromCache', statements);
-		return statements[0];
+	let entities = getEntityInstancesFromCache([id], entityType);
+	if (entities.length > 0) {
+		console.log('getEntityFromCache', entities);
+		return entities[0];
 	}
-	statements = getEntityDB(id, entityType);
-	console.log('getEntityFromDB', statements);
-	if (!statements) return getFallbackEntity(entityType);
-	cacheEntities(statements);
-	return statements[0];
+	entities = [getEntityDB(id, entityType)];
+	console.log('getEntityFromDB', entities);
+	if (!entities) return getFallbackEntity(entityType);
+	cacheEntities(entities);
+	return entities[0];
 }
 
 export function getArgumentsFor(id: string, useCache = true) {
@@ -219,7 +218,6 @@ function searchEntitiesInCache(searchTerm: string, filterOptions: IFilterOptions
 		const controversialCondition = true; //filterOptions.controversial ? Math.abs(duplication.lastSeasonTruth - 0.5) < 2 : true;
 		return searchTermCondition && tagCondition && entityTypeCondition && controversialCondition;
 	}
-
 	function sortStatement(
 		statementFirst: IStatement,
 		statementSecond: IStatement,

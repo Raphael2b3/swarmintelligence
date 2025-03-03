@@ -1,7 +1,8 @@
 <script lang="ts">
+	import { Button } from '$lib/shared/components/ui/button';
 </script>
 
-<button>Report</button>
+<Button>Report</Button>
 if the entity is made by you
-<button>Delete</button>
-<button>Edit</button>
+<Button>Delete</Button>
+<Button>Edit</Button>

@@ -1,4 +1,6 @@
 <script>
+	import { Button } from './ui/button';
+
 	let { children, open, title = 'Popup' } = $props();
 
 	function closeFlyout() {
@@ -24,13 +26,13 @@
 		<div
 			style="red; width: 100%; display: flex; flex-direction: row-reverse; align-items: center; justify-content: space-between"
 		>
-			<button
+			<Button
 				onclick={closeFlyout}
 				style="
 		background: none;
 		border: none;
 		font-size: 2rem;
-		cursor: pointer;">cancel</button
+		cursor: pointer;">cancel</Button
 			>
 			<h5>{title}</h5>
 		</div>

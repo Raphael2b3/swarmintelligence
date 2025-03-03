@@ -1,4 +1,6 @@
-<script>
+<script lang="ts">
+	import { Button } from '$lib/shared/components/ui/button';
+
 	let text = $state('It is True that, ');
 	let tags = $state('cool, stuff');
 
@@ -22,13 +24,13 @@
 	<p>Create Statement</p>
 	<textarea bind:value={text} title="Statement"></textarea>
 	<div style="display: flex; flex-direction: row;">
-		<button onclick={onContraSelected}>False</button>
-		<button onclick={onProSelected}>True</button>
+		<Button onclick={onContraSelected}>False</Button>
+		<Button onclick={onProSelected}>True</Button>
 	</div>
 	<p>Tags</p>
 	<textarea bind:value={tags} title="Tags"></textarea>
 	<div style="display: flex; flex-direction: row;">
-		<button onclick={onCancel}>Cancel</button>
-		<button onclick={onSave}>Save</button>
+		<Button onclick={onCancel}>Cancel</Button>
+		<Button onclick={onSave}>Save</Button>
 	</div>
 </div>

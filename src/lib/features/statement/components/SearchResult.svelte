@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { Button } from '$lib/shared/components/ui/button';
 	import type { IStatement } from '$lib/shared/types';
 
 	let { statement }: { statement: IStatement } = $props();
@@ -6,5 +7,5 @@
 
 <div style="display: flex; flex-direction: row;">
 	<div>{statement.text}</div>
-	<button>Connect</button>
+	<Button>Connect</Button>
 </div>

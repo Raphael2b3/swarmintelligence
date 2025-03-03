@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { Button } from '$lib/shared/components/ui/button';
 	import type { IConnectionExtended } from '../types';
 	let { connection }: { connection: IConnectionExtended } = $props();
 
@@ -11,8 +12,8 @@
 {connection.thesis.text}
 <h5>{arg_type_str} Argument</h5>
 {connection.argument.text}
-<button>fav</button>
-<button>share</button>
+<Button>fav</Button>
+<Button>share</Button>
 This is Actually a good {arg_type_str} Argument
 
 <div

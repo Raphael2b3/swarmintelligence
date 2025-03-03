@@ -1,9 +1,9 @@
 <script lang="ts">
 	import CheckBoxGroup from '$lib/shared/components/CheckBoxGroup.svelte';
 	import Select from '$lib/shared/components/Select.svelte';
+	import Button from '$lib/shared/components/ui/button/button.svelte';
 	import type { IFilterOptions } from '$lib/shared/types';
 	let { options = $bindable() }: { options: IFilterOptions } = $props();
-
 	// Functions
 	function setDefaultOptions() {
 		options['controversial'] = false;
@@ -57,12 +57,12 @@
 	];
 </script>
 
-<button onclick={() => (expanded = !expanded)}>Expand</button>
+<Button onclick={() => (expanded = !expanded)}>Expand</Button>
 {#if !expanded}
 	{previewtext}
 {:else}
 	<div style="display:flex; gap: 3px; flex-direction: column;">
-		<button onclick={onClear}>Clear Filter</button>
+		<Button onclick={onClear}>Clear Filter</Button>
 		<input type="checkbox" bind:checked={options.controversial} title="Controversial Only" />
 
 		Entities

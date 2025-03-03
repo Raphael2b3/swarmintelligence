@@ -1,9 +1,10 @@
 <script lang="ts">
-	import { uistate } from '$lib/shared/state/searchmode.svelte';
+	import { Button } from '$lib/shared/components/ui/button';
+	import { pisse } from '$lib/shared/state/searchmode.svelte';
 
 	let value = $state('');
 	$effect(() => {
-		uistate.searching = value !== '';
+		pisse.searching = value !== '';
 	});
 	function doSearch(event: Event) {
 		alert('Search for ' + value);
@@ -22,9 +23,9 @@
 		<i>search</i>
 		<input bind:value placeholder="Search" class="solo-input" />
 	</div>
-	<button disabled={value === ''} color="primary" class="solo-fab">
+	<Button disabled={value === ''} color="primary" class="solo-fab">
 		<i class="material-icons">arrow_forward</i>
-	</button>
+	</Button>
 </form>
 
 <style>

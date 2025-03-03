@@ -1,4 +1,5 @@
 <script>
+	import { Button } from '$lib/shared/components/ui/button';
 	let { open = $bindable(), children } = $props();
 
 	function closeFlyout() {
@@ -7,7 +8,7 @@
 </script>
 
 {#if open}
-	<button class="backdrop show" onclick={closeFlyout}>Close</button>
+	<Button class="backdrop show" onclick={closeFlyout}>Close</Button>
 {/if}
 
 <div
@@ -27,7 +28,7 @@
 		transition: transform 0.3s ease;
          {open ? 'transform: translateX(0);' : ''}"
 >
-	<button
+	<Button
 		onclick={closeFlyout}
 		style="position: absolute;
 		top: 10px;
@@ -35,7 +36,7 @@
 		background: none;
 		border: none;
 		font-size: 24px;
-		cursor: pointer;">cancel</button
+		cursor: pointer;">cancel</Button
 	>
 	<h5>Menu</h5>
 	{@render children()}
