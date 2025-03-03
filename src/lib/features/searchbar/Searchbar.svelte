@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { setSearchmode } from '$lib/shared/state/searchmode.svelte';
+	import { uistate } from '$lib/shared/state/searchmode.svelte';
 
 	let value = $state('');
 	$effect(() => {
-		setSearchmode(value !== '');
+		uistate.searching = value !== '';
 	});
 	function doSearch(event: Event) {
 		alert('Search for ' + value);
