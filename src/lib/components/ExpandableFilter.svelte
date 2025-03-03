@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { IFilterOptions } from '$lib/interfaces';
+	import type { IFilterOptions } from '$lib/shared/interfaces';
 	import Checkbox from './form/Checkbox.svelte';
 	import DropdownSelect from './form/DropdownSelect.svelte';
 	import Textfield from './form/Textfield.svelte';

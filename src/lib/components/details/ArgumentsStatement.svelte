@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { getArgumentsFor } from '$lib/state/entities.svelte';
+	import { getArgumentsFor } from '$lib/shared/state/entities.svelte';
 	import PopUpModal from '../PopUpModal.svelte';
 	import StatementSearchResult from '../searchresult/StatementSearchResult.svelte';
 	import TabNav from '../TabNav.svelte';

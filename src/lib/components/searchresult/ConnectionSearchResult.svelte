@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type { IConnection, IStatement } from '$lib/interfaces';
-	import { getEntity, getFallbackConnection } from '$lib/state/entities.svelte';
+	import type { IConnection, IStatement } from '$lib/shared/interfaces';
+	import { getEntity, getFallbackConnection } from '$lib/shared/state/entities.svelte';
 
 	let { connection = getFallbackConnection() }: { connection: IConnection } = $props();
 	let thesis = getEntity(connection.thesis, 'statement') as IStatement;

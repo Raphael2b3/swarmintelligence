@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { setSearchmode } from '$lib/state/searchmode.svelte';
+	import { setSearchmode } from '$lib/shared/state/searchmode.svelte';
 
 	let value = $state('');
 	$effect(() => {

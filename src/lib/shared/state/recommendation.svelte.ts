@@ -1,7 +1,6 @@
 import { getRecommendationDB } from '$lib/database';
-import type { IEntity, IEntityType } from '$lib/interfaces';
+import type { IEntity, IEntityType } from '$lib/shared/interfaces';
 import { getEntity } from './entities.svelte';
-
 
 class RecommendationManager {
 	constructor() {
@@ -21,7 +20,7 @@ class RecommendationManager {
 		this.index = 0;
 	}
 	getNext() {
-		console.log("dfgnmnhgfdsa")
+		console.log('dfgnmnhgfdsa');
 		this.index++;
 	}
 	getPrevious() {

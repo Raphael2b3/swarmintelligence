@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { accordion } from '$lib/animations/accordion';
+	import { accordion } from '$lib/shared/animations/accordion';
 	let expanded = $state(false);
 	let { children } = $props();
 </script>

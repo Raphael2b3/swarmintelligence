@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type { IDuplication, IStatement } from '$lib/interfaces';
-	import { getEntity, getFallbackDuplication } from '$lib/state/entities.svelte';
+	import type { IDuplication, IStatement } from '$lib/shared/interfaces';
+	import { getEntity, getFallbackDuplication } from '$lib/shared/state/entities.svelte';
 
 	let { duplication = getFallbackDuplication() }: { duplication: IDuplication } = $props();
 

@@ -10,7 +10,7 @@
 		getFallbackConnection,
 		getFallbackDuplication,
 		getFallbackStatement
-	} from '$lib/state/entities.svelte';
+	} from '$lib/shared/state/entities.svelte';
 	import ActionButtonList from '$lib/components/ActionButtonList.svelte';
 	import ArgumentSelectableStatement from '$lib/components/ArgumentSelectableStatement.svelte';
 	import CreateStatement from '$lib/components/CreateStatement.svelte';
@@ -21,7 +21,7 @@
 	import ScrollableRichText from '$lib/components/ScrollableRichText.svelte';
 	import Searchbar from '$lib/components/Searchbar.svelte';
 	import ThesisSelectableStatement from '$lib/components/ThesisSelectableStatement.svelte';
-	import type { IFilterOptions } from '$lib/interfaces';
+	import type { IFilterOptions } from '$lib/shared/interfaces';
 	import Navbar from '$lib/components/Navbar.svelte';
 	import ArgumentsStatement from '$lib/components/details/ArgumentsStatement.svelte';
 	import ConnectStatement from '$lib/components/details/ConnectStatement.svelte';

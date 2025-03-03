@@ -10,8 +10,8 @@
 		getFallbackConnection,
 		getFallbackDuplication,
 		getFallbackStatement
-	} from '$lib/state/entities.svelte';
-	import { getSearchmode } from '$lib/state/searchmode.svelte';
+	} from '$lib/shared/state/entities.svelte';
+	import { getSearchmode } from '$lib/shared/state/searchmode.svelte';
 
 	let randint: number = $state(0);
 </script>

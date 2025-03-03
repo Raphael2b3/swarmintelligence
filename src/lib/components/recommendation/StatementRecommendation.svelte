@@ -1,5 +1,5 @@
 <script>
-	import { getFallbackStatement } from '$lib/state/entities.svelte';
+	import { getFallbackStatement } from '$lib/shared/state/entities.svelte';
 	import ActionButtonList from '../ActionButtonList.svelte';
 	import ScrollableRichText from '../ScrollableRichText.svelte';
 	let { statement = getFallbackStatement() } = $props();

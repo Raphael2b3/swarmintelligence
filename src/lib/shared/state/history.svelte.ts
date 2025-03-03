@@ -1,12 +1,9 @@
 import { getHistoryDB } from '$lib/database';
-import type { IEntity, IEntityType } from '$lib/interfaces';
+import type { IEntity, IEntityType } from '$lib/shared/interfaces';
 import { getEntity } from './entities.svelte';
 
 const PAGE_SIZE = 10;
 // history = [ [id,entityType],...]
-
-
-
 
 class HistoryManager {
 	bypass = false;
@@ -14,21 +11,26 @@ class HistoryManager {
 	entityTypes: IEntityType[] = [];
 	index = $state(0);
 	start = $derived(PAGE_SIZE * this.index);
-	end = $derived(PAGE_SIZE * (this.index + 1) <= this.historyKeys.length ? PAGE_SIZE * (this.index + 1) : this.historyKeys.length);
-	current_entities = $derived(this.historyKeys.slice(this.start, this.end).map((k, index) => getEntity(k, this.entityTypes[index])));
+	end = $derived(
+		PAGE_SIZE * (this.index + 1) <= this.historyKeys.length
+			? PAGE_SIZE * (this.index + 1)
+			: this.historyKeys.length
+	);
+	current_entities = $derived(
+		this.historyKeys
+			.slice(this.start, this.end)
+			.map((k, index) => getEntity(k, this.entityTypes[index]))
+	);
 
 	constructor() {
-
 		this.refresh();
 	}
-
 
 	refresh() {
 		this.index = 0;
 		const obj = getHistoryDB();
 		this.historyKeys = obj.ids;
 		this.entityTypes = obj.types;
-
 	}
 
 	get current() {
@@ -43,7 +45,6 @@ class HistoryManager {
 	getPrevious() {
 		if (this.index - 1 < 0) return;
 		this.index--;
-
 	}
 
 	watch(entity: IEntity) {

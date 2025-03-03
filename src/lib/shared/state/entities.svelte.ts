@@ -18,7 +18,7 @@ import type {
 	IEntityType,
 	IConnectiveType,
 	IVoteValue
-} from '$lib/interfaces';
+} from '$lib/shared/interfaces';
 import { historyManager } from './history.svelte';
 
 export function getFallbackEntity(entityType: IEntityType) {

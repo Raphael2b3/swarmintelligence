@@ -1,7 +1,7 @@
 <script lang="ts">
-	import type { IDuplication, IStatement } from '$lib/interfaces';
+	import type { IDuplication, IStatement } from '$lib/shared/interfaces';
 	import ConnectButton from '../buttons/iconbuttons/ConnectButton.svelte';
-	import { getFallbackStatement } from '$lib/state/entities.svelte';
+	import { getFallbackStatement } from '$lib/shared/state/entities.svelte';
 
 	let { statement = getFallbackStatement() }: { statement: IStatement } = $props();
 </script>

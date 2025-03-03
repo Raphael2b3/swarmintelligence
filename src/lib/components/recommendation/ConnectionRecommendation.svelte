@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type { IConnection } from '$lib/interfaces';
-	import { getFallbackConnection } from '$lib/state/entities.svelte';
+	import type { IConnection } from '$lib/shared/interfaces';
+	import { getFallbackConnection } from '$lib/shared/state/entities.svelte';
 	import ActionButtonList from '../ActionButtonList.svelte';
 	import Slider from '../form/Slider.svelte';
 	import ScrollableRichText from '../ScrollableRichText.svelte';

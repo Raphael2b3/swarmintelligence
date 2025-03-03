@@ -6,7 +6,7 @@ import type {
 	IEntityType,
 	IFilterOptions,
 	IStatement
-} from '$lib/interfaces';
+} from '$lib/shared/interfaces';
 const statements: IStatement[] = [
 	{
 		id: '1',
