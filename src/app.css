@@ -77,24 +77,8 @@
 }
 
 
-button {
-  @apply bg-primary text-primary-foreground;
-  margin: 3px;
-  padding-left: 0.5rem ;
-  padding-right: 0.5rem;
-  padding-top: 0.1rem;
-  padding-bottom: 0.1rem;
-  width: max-content;
-  border-radius: var(--radius);
-  border: 1px solid var(--border);
-}
-
-input {
-  @apply bg-input text-foreground;
-  border-radius: var(--radius);
-  border: 1px solid var(--border);
-  padding-left: 0.5rem ;
-  padding-right: 0.5rem;
-  padding-top: 0.1rem;
-  padding-bottom: 0.1rem;
+@media (max-width: 640px) {
+	.container {
+		@apply px-4;
+	}
 }

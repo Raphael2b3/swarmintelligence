@@ -1,4 +1,6 @@
 <script lang="ts">
+	import Icon from '$lib/shared/components/Icon.svelte';
+	import { Input } from '$lib/shared/components/ui/input';
 	import { uistate } from '$lib/shared/state/searchmode.svelte';
 
 	let value = $state('');
@@ -11,8 +13,7 @@
 	}
 </script>
 
-<form onsubmit={doSearch}>
-	<i>search</i>
+<form onsubmit={doSearch} class="flex flex-row items-center justify-center gap-4">
 	<input bind:value placeholder="Search" class="solo-input" />
-	<button disabled={value === ''}> Arrow Forward </button>
+	<Icon icon="mdi:search" type="submit"></Icon>
 </form>
