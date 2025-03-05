@@ -58,8 +58,12 @@
 </script>
 
 <Dialog.Root>
-	<Dialog.Trigger class={buttonVariants({ variant: 'outline' }) + 'flex gap-1 align-baseline'}
-		>Open Filter <Icon icon="flowbite:filter-outline"></Icon></Dialog.Trigger
+	<Dialog.Trigger
+		class={buttonVariants({ variant: 'outline' }) +
+			'flex aspect-square align-baseline sm:aspect-auto'}
+	>
+		<Icon icon="flowbite:filter-outline"><div class="hidden sm:block">Open Filter</div></Icon
+		></Dialog.Trigger
 	>
 	<Dialog.Content class="sm:max-w-[425px]">
 		<Dialog.Header>
@@ -90,8 +94,5 @@
 			Tags
 			<input type="text" bind:value={options._tagstring} placeholder="tag1 tag2" />
 		</div>
-		<Dialog.Footer>
-			<Button type="submit">Save</Button>
-		</Dialog.Footer>
 	</Dialog.Content>
 </Dialog.Root>

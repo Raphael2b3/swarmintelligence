@@ -26,16 +26,8 @@ type DocsConfig = {
 export const docsConfig: DocsConfig = {
 	mainNav: [
 		{
-			title: 'Login',
-			href: '/login'
-		},
-		{
-			title: 'Register',
-			href: '/register'
-		},
-		{
-			title: 'Logout',
-			href: '/logout'
+			title: 'Home',
+			href: '/'
 		},
 		{
 			title: 'Settings',

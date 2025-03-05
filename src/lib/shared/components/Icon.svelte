@@ -5,7 +5,7 @@
 	let { children, ...props }: IconProps & SvelteHTMLElements['svg'] & { children?: any } = $props();
 </script>
 
-<div class="{cn('flex flex-row gap-1', props.class)}}">
+<div class={cn('flex flex-row gap-2 align-text-top', props.class)}>
 	<Icon height="1.2rem" width="1.2rem" {...props}></Icon>
 	{@render children?.()}
 </div>
