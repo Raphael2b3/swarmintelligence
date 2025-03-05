@@ -1,7 +1,10 @@
 <script lang="ts">
 	import Icon, { type IconProps } from '@iconify/svelte';
 	import type { SvelteHTMLElements } from 'svelte/elements';
-	let { ...props }: IconProps & SvelteHTMLElements['svg'] = $props();
+	let { children, ...props }: IconProps & SvelteHTMLElements['svg'] & { children?: any } = $props();
 </script>
 
-<Icon height="1rem" width="1rem" {...props}></Icon>
+<div class="flex flex-row gap-1">
+	<Icon height="1.2rem" width="1.2rem" {...props}></Icon>
+	{@render children?.()}
+</div>
