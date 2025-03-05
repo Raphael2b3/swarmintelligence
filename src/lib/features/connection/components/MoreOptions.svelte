@@ -1,8 +1,9 @@
 <script lang="ts">
-	import { Button } from '$lib/shared/components/ui/button';
+	let { owner = false } = $props();
 </script>
 
-<Button>Report</Button>
-if the entity is made by you
-<Button>Delete</Button>
-<Button>Edit</Button>
+<button>Report</button>
+{#if owner}
+	<button>Delete</button>
+	<button>Edit</button>
+{/if}

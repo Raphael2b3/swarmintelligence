@@ -1,5 +1,4 @@
 <script>
-	import { Button } from '$lib/shared/components/ui/button';
 	let { open = $bindable(), children } = $props();
 
 	function closeFlyout() {
@@ -8,37 +7,17 @@
 </script>
 
 {#if open}
-	<Button class="backdrop show" onclick={closeFlyout}>Close</Button>
+	<button class="backdrop show" onclick={closeFlyout}>Close</button>
 {/if}
 
 <div
-	style="position: fixed;
-		top: 0;
-		left: 0;
-		padding-left:10px;
-		padding-right:10px;
-		diplay:flex;
-		gap:5px;
-		height: 100%;
-		width: 300px;
-		z-index: 10;
-		display: flex;
-		align-items: left;
-		transform: translateX(-100%);
-		transition: transform 0.3s ease;
-         {open ? 'transform: translateX(0);' : ''}"
+	class="fixed top-0 left-0 z-10 flex flex-col bg-white"
+	style="transform: translateX({open ? '0' : '-100%'})"
 >
-	<Button
-		onclick={closeFlyout}
-		style="position: absolute;
-		top: 10px;
-		right: 10px;
-		background: none;
-		border: none;
-		font-size: 24px;
-		cursor: pointer;">cancel</Button
-	>
-	<h5>Menu</h5>
+	<div class="flex flex-row justify-between">
+		<h5>Menu</h5>
+		<button onclick={closeFlyout}>Close</button>
+	</div>
 	{@render children()}
 	<!-- Slot für dynamische Inhalte -->
 </div>

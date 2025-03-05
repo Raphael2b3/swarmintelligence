@@ -1,10 +1,9 @@
 <script lang="ts">
-	import { Button } from '$lib/shared/components/ui/button';
 </script>
 
-<Button>Show Related Duplications</Button>
-<Button>Mark as Duplicate</Button>
-<Button>Report</Button>
+<button>Show Related Duplications</button>
+<button>Mark as Duplicate</button>
+<button>Report</button>
 if the entity is made by you
-<Button>Delete</Button>
-<Button>Edit</Button>
+<button>Delete</button>
+<button>Edit</button>

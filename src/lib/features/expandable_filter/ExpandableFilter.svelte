@@ -1,7 +1,6 @@
 <script lang="ts">
 	import CheckBoxGroup from '$lib/shared/components/CheckBoxGroup.svelte';
 	import Select from '$lib/shared/components/Select.svelte';
-	import Button from '$lib/shared/components/ui/button/button.svelte';
 	import type { IFilterOptions } from '$lib/shared/types';
 	let { options = $bindable() }: { options: IFilterOptions } = $props();
 	// Functions
@@ -19,8 +18,8 @@
 	}
 
 	const sortdirections = [
-		{ value: 'asc', name: 'Ascending' },
-		{ value: 'desc', name: 'Descending' }
+		{ value: 'asc', label: 'Ascending' },
+		{ value: 'desc', label: 'Descending' }
 	];
 
 	// Logic
@@ -29,14 +28,11 @@
 	});
 
 	let previewtext = $derived(
-		`Controversial: ${options.controversial}, ` +
-			`Sort by Truth: ${options.sortByTruth}, ` +
-			`Sort by Votes: ${options.sortByVotes}, ` +
-			`Tags: ${options.tags}, ` +
-			`Entitytype: ${options.entitytype}, ` +
-			`Sort by Truth: ${options.sortByTruth}, ` +
-			`Sort by Votes: ${options.sortByVotes}, ` +
-			`Entitytype: ${options.entitytype}`
+		`${options.controversial ? 'Controversial, ' : ''}` +
+			`Truth ${options.sortByTruth}, ` +
+			`Votes ${options.sortByVotes}, ` +
+			`${options.tags} ` +
+			`${options.entitytype}`
 	);
 
 	let expanded = $state(false);
@@ -57,14 +53,14 @@
 	];
 </script>
 
-<Button onclick={() => (expanded = !expanded)}>Expand</Button>
-{#if !expanded}
-	{previewtext}
-{:else}
+<button onclick={() => (expanded = !expanded)}>Expand Filter ({previewtext})</button>
+{#if !expanded}{:else}
 	<div style="display:flex; gap: 3px; flex-direction: column;">
-		<Button onclick={onClear}>Clear Filter</Button>
-		<input type="checkbox" bind:checked={options.controversial} title="Controversial Only" />
-
+		<button onclick={onClear}>Clear Filter</button>
+		<div>
+			Controversial Only
+			<input type="checkbox" bind:checked={options.controversial} />
+		</div>
 		Entities
 		<CheckBoxGroup bind:group={options.entitytype} options={checkBoxOptions}></CheckBoxGroup>
 		<div style="display: flex; flex-direction: row;">
@@ -74,6 +70,6 @@
 			></Select>
 		</div>
 		Tags
-		<input type="text" bind:value={options._tagstring} title="Tags" />
+		<input type="text" bind:value={options._tagstring} placeholder="tag1 tag2" />
 	</div>
 {/if}

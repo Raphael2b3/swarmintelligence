@@ -1,1 +1,1 @@
-export const pisse = $state({ searching: false });
+export const uistate = $state({ searching: false });

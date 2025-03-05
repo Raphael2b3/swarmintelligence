@@ -8,8 +8,9 @@
 	}
 </script>
 
-<div style="height: 100vh; display:flex; flex-direction: column;">
-	<nav>
+<div class="flex flex-col">
+	<nav class="flex flex-row">
+		<button onclick={onMenuClick}>Burger</button>
 		<Searchbar></Searchbar>
 		<FlyOutMenu bind:open={openedflyout}>
 			<a href="/login">Login</a>

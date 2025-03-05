@@ -1,16 +1,16 @@
 <script lang="ts">
 	import ExpandableFilter from '$lib/features/expandable_filter/ExpandableFilter.svelte';
-	import { Statement } from '$lib/features/statement/index.svelte';
-	import { Connection } from '$lib/features/connection/index.svelte';
-	import { Duplication } from '$lib/features/duplication/index.svelte';
+	import * as Statement from '$lib/features/statement/';
+	import * as Connection from '$lib/features/connection/';
+	import * as Duplication from '$lib/features/duplication/';
+
 	import {
 		getFallbackConnection,
 		getFallbackDuplication,
 		getFallbackStatement
 	} from '$lib/shared/state/entities.svelte';
-	import { pisse } from '$lib/shared/state/searchmode.svelte';
+	import { uistate } from '$lib/shared/state/searchmode.svelte';
 	import type { IFilterOptions } from '$lib/shared/types';
-	import { Button } from '$lib/shared/components/ui/button';
 
 	let filterOptions: IFilterOptions = $state({
 		entitytype: ['statement'],
@@ -37,15 +37,15 @@
 
 <ExpandableFilter options={filterOptions} />
 
-<Button
+<button
 	onclick={() => {
 		randint = (randint + 1) % 3;
-	}}>Refresh</Button
+	}}>Refresh</button
 >
 <div
 	style="flex:1; display:flex; flex-direction: column; justify-content: space-around;  height:0;"
 >
-	{#if !pisse.searching}
+	{#if !uistate.searching}
 		<div
 			style="flex:1; display:flex; flex-direction: column; justify-content: space-around;  padding-right:3rem; padding-left: 3rem; padding-bottom: 3rem;"
 		>
@@ -65,7 +65,7 @@
 					<Connection.SearchResult {connection} />
 					<Duplication.SearchResult {duplication} />
 				{/each}
-				<Button onclick={() => console.log('')}>Didnt find what you wanted? Create it</Button>
+				<button onclick={() => console.log('')}>Didnt find what you wanted? Create it</button>
 			</div>
 		</div>
 	{/if}
