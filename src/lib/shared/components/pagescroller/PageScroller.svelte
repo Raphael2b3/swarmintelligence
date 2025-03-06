@@ -8,12 +8,17 @@
 	// -1 means previous is fully visible,
 	// 0 means current is fully visible,
 	// 1 means next is fully visible
+	let disableScroll = false;
+
 	const handleScroll = (e: any) => {
-		center?.scrollTo();
+		if (disableScroll) return;
+		disableScroll = true;
+		center?.scrollTo({ behavior: 'instant' });
 		const tmp = previous;
 		previous = current;
 		current = next;
 		next = tmp;
+		disableScroll = false;
 	};
 	const s1 = {
 		render: () => '<div id="previous" class=" h-full w-full snap-end bg-red-500"></div>'
