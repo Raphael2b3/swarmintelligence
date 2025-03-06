@@ -2,14 +2,12 @@
 	import CheckBoxGroup from '$lib/shared/components/CheckBoxGroup.svelte';
 	import Select from '$lib/shared/components/Select.svelte';
 	import Button from '$lib/shared/components/ui/button/button.svelte';
-	import type { IFilterOptions } from '$lib/shared/types';
 	import * as Dialog from '$lib/shared/components/ui/dialog/index.js';
-	import { Input } from '$lib/shared/components/ui/input/index.js';
-	import { Label } from '$lib/shared/components/ui/label/index.js';
 	import { buttonVariants } from '$lib/shared/components/ui/button';
 	import Icon from '$lib/shared/components/Icon.svelte';
 	// Functions
 	import { filterOptions as options } from '$lib/shared/state/filterOptions.svelte';
+	import { cn } from '$lib/shared/utils';
 	function setDefaultOptions() {
 		options['controversial'] = false;
 		options['sortByTruth'] = 'asc';
@@ -59,12 +57,12 @@
 
 <Dialog.Root>
 	<Dialog.Trigger
-		class={buttonVariants({ variant: 'outline' }) +
-			'flex aspect-square align-baseline sm:aspect-auto'}
+		class={cn(buttonVariants({ variant: 'outline' }), 'flex aspect-square sm:aspect-auto')}
 	>
-		<Icon icon="flowbite:filter-outline"><div class="hidden sm:block">Open Filter</div></Icon
-		></Dialog.Trigger
-	>
+		<Icon icon="flowbite:filter-outline">
+			<div class="hidden sm:block">Open Filter</div>
+		</Icon>
+	</Dialog.Trigger>
 	<Dialog.Content class="sm:max-w-[425px]">
 		<Dialog.Header>
 			<Dialog.Title>Filter Settings</Dialog.Title>
