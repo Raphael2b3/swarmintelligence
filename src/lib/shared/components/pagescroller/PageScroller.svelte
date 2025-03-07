@@ -16,6 +16,11 @@
 		previous = current;
 		current = next;
 		next = tmp;
+		dontScroll = true;
+		center!.scrollIntoView({ block: 'center' });
+		setTimeout(() => {
+			dontScroll = false;
+		}, 100);
 	};
 
 	const s1 = {
@@ -38,7 +43,7 @@
 		console.log('wheel');
 	}}
 	onscrollend={handleScroll}
-	class="h-full snap-y snap-mandatory overflow-auto"
+	class="h-full snap-y snap-mandatory snap-always overflow-auto"
 >
 	<div class="h-full w-full snap-end">
 		<Statement.Recommendation statement={previous}></Statement.Recommendation>
