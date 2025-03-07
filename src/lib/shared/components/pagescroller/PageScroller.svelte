@@ -40,26 +40,15 @@
 		observer.observe(nextContainer);
 	});
 
-	const handleScroll = (e: any) => {
-		console.log(e.target);
-
-		return;
-		const up = true;
-		const down = true;
-
-		if (up) {
-		} else if (down) {
-		} else {
-			return;
-		}
-	};
-
 	let current = $state(statements[0]);
 	let previous = $state(statements[2]);
 	let next = $state(statements[4]);
 </script>
 
-<div bind:this={scrollDiv} class="h-full snap-y snap-mandatory snap-always overflow-auto">
+<div
+	bind:this={scrollDiv}
+	class="no-scrollbar h-full snap-y snap-mandatory snap-always overflow-auto"
+>
 	<div bind:this={previosContainer} id="prev" class="h-full w-full snap-end">
 		<Statement.Recommendation statement={previous}></Statement.Recommendation>
 	</div>
