@@ -2,56 +2,71 @@
 	import { createRawSnippet, onMount, type Snippet } from 'svelte';
 	import * as Statement from '$lib/features/statement';
 	import { statements } from '$lib/database/statements/data';
+	import { on } from 'svelte/events';
 	let { pageBuilder, dataProxy } = $props();
 
-	let center: HTMLElement | undefined = $state();
-	// scrollPosition:
-	// -1 means previous is fully visible,
-	// 0 means current is fully visible,
-	// 1 means next is fully visible
-	let dontScroll = false;
+	let scrollDiv: HTMLDivElement;
+	let previosContainer: HTMLDivElement;
+	let currentContainer: HTMLDivElement;
+	let nextContainer: HTMLDivElement;
+
+	const intersectingHandler = (
+		entries: IntersectionObserverEntry[],
+		observer: IntersectionObserver
+	) => {
+		entries.forEach((entry) => {
+			if (entry.isIntersecting) {
+				if (entry.target.id === 'prev') {
+					const tmp = next;
+					next = current;
+					current = previous;
+					previous = tmp;
+				} else if (entry.target.id === 'next') {
+					const tmp = previous;
+					previous = current;
+					current = next;
+					next = tmp;
+				}
+				currentContainer.scrollIntoView({ behavior: 'instant' });
+			}
+		});
+	};
+	onMount(() => {
+		let observer = new IntersectionObserver(intersectingHandler, {
+			root: scrollDiv,
+			threshold: 1
+		});
+		observer.observe(previosContainer);
+		observer.observe(nextContainer);
+	});
+
 	const handleScroll = (e: any) => {
-		if (dontScroll) return;
-		const tmp = previous;
-		previous = current;
-		current = next;
-		next = tmp;
-		dontScroll = true;
-		center!.scrollIntoView({ block: 'center' });
-		setTimeout(() => {
-			dontScroll = false;
-		}, 100);
+		console.log(e.target);
+
+		return;
+		const up = true;
+		const down = true;
+
+		if (up) {
+		} else if (down) {
+		} else {
+			return;
+		}
 	};
 
-	const s1 = {
-		render: () => '<div id="previous" class=" h-full w-full snap-end bg-amber-100">Element1</div>'
-	};
-	const s2 = {
-		render: () =>
-			'<div id="current" class="current h-full w-full snap-end bg-amber-300">Element2</div>'
-	};
-	const s3 = {
-		render: () => '<div id="next" class="next h-full w-full snap-end bg-amber-500">Element3</div>'
-	};
 	let current = $state(statements[0]);
 	let previous = $state(statements[2]);
 	let next = $state(statements[4]);
 </script>
 
-<div
-	onwheelcapture={() => {
-		console.log('wheel');
-	}}
-	onscrollend={handleScroll}
-	class="h-full snap-y snap-mandatory snap-always overflow-auto"
->
-	<div class="h-full w-full snap-end">
+<div bind:this={scrollDiv} class="h-full snap-y snap-mandatory snap-always overflow-auto">
+	<div bind:this={previosContainer} id="prev" class="h-full w-full snap-end">
 		<Statement.Recommendation statement={previous}></Statement.Recommendation>
 	</div>
-	<div bind:this={center} class="h-full w-full snap-end">
+	<div bind:this={currentContainer} id="curr" class="h-full w-full snap-end">
 		<Statement.Recommendation statement={current}></Statement.Recommendation>
 	</div>
-	<div class="h-full w-full snap-end">
+	<div bind:this={nextContainer} id="next" class="h-full w-full snap-end">
 		<Statement.Recommendation statement={next}></Statement.Recommendation>
 	</div>
 </div>
