@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { createRawSnippet, onMount, type Snippet } from 'svelte';
-
+	import * as Statement from '$lib/features/statement';
+	import { statements } from '$lib/database/statements/data';
 	let { pageBuilder, dataProxy } = $props();
 
 	let center: HTMLElement | undefined = $state();
@@ -8,30 +9,28 @@
 	// -1 means previous is fully visible,
 	// 0 means current is fully visible,
 	// 1 means next is fully visible
-	let disableScroll = false;
-
+	let dontScroll = false;
 	const handleScroll = (e: any) => {
-		if (disableScroll) return;
-		disableScroll = true;
-		center?.scrollTo({ behavior: 'instant' });
+		if (dontScroll) return;
 		const tmp = previous;
 		previous = current;
 		current = next;
 		next = tmp;
-		disableScroll = false;
 	};
+
 	const s1 = {
-		render: () => '<div id="previous" class=" h-full w-full snap-end bg-red-500"></div>'
+		render: () => '<div id="previous" class=" h-full w-full snap-end bg-amber-100">Element1</div>'
 	};
 	const s2 = {
-		render: () => '<div id="current" class="current h-full w-full snap-end bg-green-600"></div>'
+		render: () =>
+			'<div id="current" class="current h-full w-full snap-end bg-amber-300">Element2</div>'
 	};
 	const s3 = {
-		render: () => '<div id="next" class="next h-full w-full snap-end bg-blue-400"></div>'
+		render: () => '<div id="next" class="next h-full w-full snap-end bg-amber-500">Element3</div>'
 	};
-	let current = $state(createRawSnippet(() => s1));
-	let previous = $state(createRawSnippet(() => s2));
-	let next = $state(createRawSnippet(() => s3));
+	let current = $state(statements[0]);
+	let previous = $state(statements[2]);
+	let next = $state(statements[4]);
 </script>
 
 <div
@@ -39,13 +38,17 @@
 		console.log('wheel');
 	}}
 	onscrollend={handleScroll}
-	class=" h-full snap-y snap-mandatory overflow-auto"
+	class="h-full snap-y snap-mandatory overflow-auto"
 >
-	{@render current()}
-	<div bind:this={center}></div>
-	{@render previous()}
-
-	{@render next()}
+	<div class="h-full w-full snap-end">
+		<Statement.Recommendation statement={previous}></Statement.Recommendation>
+	</div>
+	<div bind:this={center} class="h-full w-full snap-end">
+		<Statement.Recommendation statement={current}></Statement.Recommendation>
+	</div>
+	<div class="h-full w-full snap-end">
+		<Statement.Recommendation statement={next}></Statement.Recommendation>
+	</div>
 </div>
 
 <style>
