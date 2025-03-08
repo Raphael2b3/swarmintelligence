@@ -14,8 +14,10 @@
 		observer: IntersectionObserver
 	) => {
 		entries.forEach((entry) => {
+			console.log(entry);
 			if (entry.isIntersecting) {
 				if (entry.target.id === 'prev') {
+					console.log('prev');
 					const tmp = next;
 					next = current;
 					current = previous;
@@ -33,7 +35,7 @@
 	onMount(() => {
 		let observer = new IntersectionObserver(intersectingHandler, {
 			root: scrollDiv,
-			threshold: 1
+			threshold: 0.999
 		});
 		observer.observe(previosContainer);
 		observer.observe(nextContainer);
@@ -44,17 +46,14 @@
 	let next = $state(statements[4]);
 </script>
 
-<div
-	bind:this={scrollDiv}
-	class="no-scrollbar h-full snap-y snap-mandatory snap-always overflow-auto"
->
+<div bind:this={scrollDiv} class="h-full snap-y snap-mandatory snap-always overflow-y-scroll">
 	<div bind:this={previosContainer} id="prev" class="h-full w-full snap-end">
 		<Statement.Recommendation statement={previous}></Statement.Recommendation>
 	</div>
 	<div bind:this={currentContainer} id="curr" class="h-full w-full snap-end">
 		<Statement.Recommendation statement={current}></Statement.Recommendation>
 	</div>
-	<div bind:this={nextContainer} id="next" class="h-full w-full snap-end">
+	<div bind:this={nextContainer} id="next" class="h-full w-full snap-end bg-amber-900">
 		<Statement.Recommendation statement={next}></Statement.Recommendation>
 	</div>
 </div>

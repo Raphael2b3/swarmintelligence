@@ -26,4 +26,6 @@
 	};
 </script>
 
-<PageScroller pageBuilder dataProxy></PageScroller>
+<div class="h-full w-full">
+	<PageScroller pageBuilder dataProxy></PageScroller>
+</div>
