@@ -1,7 +1,6 @@
 <script lang="ts">
 	import Icon from '$lib/shared/components/Icon.svelte';
 	import Button from '$lib/shared/components/ui/button/button.svelte';
-	import Card from '$lib/shared/components/ui/card/card.svelte';
 	import Separator from '$lib/shared/components/ui/separator/separator.svelte';
 	import type { IStatement } from '$lib/shared/types';
 

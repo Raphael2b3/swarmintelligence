@@ -17,12 +17,6 @@ type DocsConfig = {
 	mainNav: NavItem[];
 	sidebarNav: SidebarNavItem[];
 };
-/*
-<a href="/login">Login</a>
-<a href="/register">Register</a>
-<a href="/logout">Logout</a>
-<a href="/settings">Settings</a>
-<a href="/about">About</a> */
 export const docsConfig: DocsConfig = {
 	mainNav: [
 		{

@@ -1,8 +1,7 @@
 <script lang="ts">
-	import { createRawSnippet, onMount, type Snippet } from 'svelte';
+	import { onMount } from 'svelte';
 	import * as Statement from '$lib/features/statement';
 	import { statements } from '$lib/database/statements/data';
-	import { on } from 'svelte/events';
 	let { pageBuilder, dataProxy } = $props();
 
 	let scrollDiv: HTMLDivElement;

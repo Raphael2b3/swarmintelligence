@@ -1,7 +1,6 @@
 <script lang="ts">
 	import Icon, { type IconProps } from '@iconify/svelte';
 	import type { SvelteHTMLElements } from 'svelte/elements';
-	import { cn } from '../utils';
 	let {
 		children,
 		icon2 = '',
