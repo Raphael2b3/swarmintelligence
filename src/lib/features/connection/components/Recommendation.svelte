@@ -1,7 +1,7 @@
 <script lang="ts">
-	import type { IConnectionExtended } from '../types';
+	import type { IConnection } from '$lib/shared/types';
 
-	let { connection }: { connection: IConnectionExtended } = $props();
+	let { connection }: { connection: IConnection } = $props();
 
 	let value = $state(0.5);
 	let value_indicator = $derived((value * 100).toFixed(2) + '%');

@@ -1,8 +1,7 @@
 <script lang="ts">
-	import { getFallbackConnection, getFallbackDuplication } from '$lib/shared/state/entities.svelte';
+	import type { IDuplication } from '$lib/shared/types';
 
-	import type { IDuplicationExtended } from '../types';
-	let { duplication }: { duplication: IDuplicationExtended } = $props();
+	let { duplication }: { duplication: IDuplication } = $props();
 </script>
 
 <h5>The Statement</h5>

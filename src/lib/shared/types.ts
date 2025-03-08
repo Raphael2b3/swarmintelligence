@@ -1,5 +1,3 @@
-import type { I } from 'vitest/dist/chunks/reporters.QZ837uWx.js';
-
 export interface IStatement {
 	id: string;
 	type: IEntityType;
@@ -19,8 +17,8 @@ export function isIStatement(object: any): object is IStatement {
 export interface IConnection {
 	id: string;
 	type: IEntityType;
-	thesisId: string;
-	argumentId: string;
+	thesis: IStatement;
+	argument: IStatement;
 	isProArgument: boolean;
 	weight: number;
 	numberOfVotes: number;
@@ -35,8 +33,8 @@ export function isIConnection(object: any): object is IConnection {
 export interface IDuplication {
 	id: string;
 	type: IEntityType;
-	statementAId: string;
-	statementBId: string;
+	statementA: IStatement;
+	statementB: IStatement;
 	userVote?: IVoteValue;
 	numberOfVotes: number;
 	isDuplicateVotes: number;

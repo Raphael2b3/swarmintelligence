@@ -4,8 +4,24 @@ export const connections: IConnection[] = [
 	{
 		id: '1',
 		type: 'connection',
-		thesisId: '1',
-		argumentId: '1',
+		thesis: {
+			id: '1',
+			type: 'statement',
+			text: 'The earth is round',
+			lastSeasonTruth: 0.9,
+			numberOfVotes: 100,
+			voteRatio: 0.5,
+			author: 'Jane Doe'
+		},
+		argument: {
+			id: '1',
+			type: 'statement',
+			text: 'The earth is round',
+			lastSeasonTruth: 0.9,
+			numberOfVotes: 100,
+			voteRatio: 0.5,
+			author: 'Jane Doe'
+		},
 		isProArgument: true,
 		weight: 0.8,
 		numberOfVotes: 100,
@@ -15,8 +31,24 @@ export const connections: IConnection[] = [
 	{
 		id: '1',
 		type: 'connection',
-		thesisId: '1',
-		argumentId: '1',
+		thesis: {
+			id: '1',
+			type: 'statement',
+			text: 'The earth is round',
+			lastSeasonTruth: 0.9,
+			numberOfVotes: 100,
+			voteRatio: 0.5,
+			author: 'Jane Doe'
+		},
+		argument: {
+			id: '1',
+			type: 'statement',
+			text: 'The earth is round',
+			lastSeasonTruth: 0.9,
+			numberOfVotes: 100,
+			voteRatio: 0.5,
+			author: 'Jane Doe'
+		},
 		isProArgument: true,
 		weight: 0.8,
 		numberOfVotes: 100,
@@ -26,8 +58,24 @@ export const connections: IConnection[] = [
 	{
 		id: '1',
 		type: 'connection',
-		thesisId: '1',
-		argumentId: '1',
+		thesis: {
+			id: '1',
+			type: 'statement',
+			text: 'The earth is round',
+			lastSeasonTruth: 0.9,
+			numberOfVotes: 100,
+			voteRatio: 0.5,
+			author: 'Jane Doe'
+		},
+		argument: {
+			id: '1',
+			type: 'statement',
+			text: 'The earth is round',
+			lastSeasonTruth: 0.9,
+			numberOfVotes: 100,
+			voteRatio: 0.5,
+			author: 'Jane Doe'
+		},
 		isProArgument: true,
 		weight: 0.8,
 		numberOfVotes: 100,
@@ -37,8 +85,24 @@ export const connections: IConnection[] = [
 	{
 		id: '1',
 		type: 'connection',
-		thesisId: '1',
-		argumentId: '1',
+		thesis: {
+			id: '1',
+			type: 'statement',
+			text: 'The earth is round',
+			lastSeasonTruth: 0.9,
+			numberOfVotes: 100,
+			voteRatio: 0.5,
+			author: 'Jane Doe'
+		},
+		argument: {
+			id: '1',
+			type: 'statement',
+			text: 'The earth is round',
+			lastSeasonTruth: 0.9,
+			numberOfVotes: 100,
+			voteRatio: 0.5,
+			author: 'Jane Doe'
+		},
 		isProArgument: true,
 		weight: 0.8,
 		numberOfVotes: 100,
@@ -48,8 +112,24 @@ export const connections: IConnection[] = [
 	{
 		id: '1',
 		type: 'connection',
-		thesisId: '1',
-		argumentId: '1',
+		thesis: {
+			id: '1',
+			type: 'statement',
+			text: 'The earth is round',
+			lastSeasonTruth: 0.9,
+			numberOfVotes: 100,
+			voteRatio: 0.5,
+			author: 'Jane Doe'
+		},
+		argument: {
+			id: '1',
+			type: 'statement',
+			text: 'The earth is round',
+			lastSeasonTruth: 0.9,
+			numberOfVotes: 100,
+			voteRatio: 0.5,
+			author: 'Jane Doe'
+		},
 		isProArgument: true,
 		weight: 0.8,
 		numberOfVotes: 100,
@@ -59,8 +139,24 @@ export const connections: IConnection[] = [
 	{
 		id: '1',
 		type: 'connection',
-		thesisId: '1',
-		argumentId: '1',
+		thesis: {
+			id: '1',
+			type: 'statement',
+			text: 'The earth is round',
+			lastSeasonTruth: 0.9,
+			numberOfVotes: 100,
+			voteRatio: 0.5,
+			author: 'Jane Doe'
+		},
+		argument: {
+			id: '1',
+			type: 'statement',
+			text: 'The earth is round',
+			lastSeasonTruth: 0.9,
+			numberOfVotes: 100,
+			voteRatio: 0.5,
+			author: 'Jane Doe'
+		},
 		isProArgument: true,
 		weight: 0.8,
 		numberOfVotes: 100,
@@ -70,8 +166,24 @@ export const connections: IConnection[] = [
 	{
 		id: '1',
 		type: 'connection',
-		thesisId: '1',
-		argumentId: '1',
+		thesis: {
+			id: '1',
+			type: 'statement',
+			text: 'The earth is round',
+			lastSeasonTruth: 0.9,
+			numberOfVotes: 100,
+			voteRatio: 0.5,
+			author: 'Jane Doe'
+		},
+		argument: {
+			id: '1',
+			type: 'statement',
+			text: 'The earth is round',
+			lastSeasonTruth: 0.9,
+			numberOfVotes: 100,
+			voteRatio: 0.5,
+			author: 'Jane Doe'
+		},
 		isProArgument: true,
 		weight: 0.8,
 		numberOfVotes: 100,
@@ -81,8 +193,24 @@ export const connections: IConnection[] = [
 	{
 		id: '1',
 		type: 'connection',
-		thesisId: '1',
-		argumentId: '1',
+		thesis: {
+			id: '1',
+			type: 'statement',
+			text: 'The earth is round',
+			lastSeasonTruth: 0.9,
+			numberOfVotes: 100,
+			voteRatio: 0.5,
+			author: 'Jane Doe'
+		},
+		argument: {
+			id: '1',
+			type: 'statement',
+			text: 'The earth is round',
+			lastSeasonTruth: 0.9,
+			numberOfVotes: 100,
+			voteRatio: 0.5,
+			author: 'Jane Doe'
+		},
 		isProArgument: true,
 		weight: 0.8,
 		numberOfVotes: 100,
@@ -92,8 +220,24 @@ export const connections: IConnection[] = [
 	{
 		id: '1',
 		type: 'connection',
-		thesisId: '1',
-		argumentId: '1',
+		thesis: {
+			id: '1',
+			type: 'statement',
+			text: 'The earth is round',
+			lastSeasonTruth: 0.9,
+			numberOfVotes: 100,
+			voteRatio: 0.5,
+			author: 'Jane Doe'
+		},
+		argument: {
+			id: '1',
+			type: 'statement',
+			text: 'The earth is round',
+			lastSeasonTruth: 0.9,
+			numberOfVotes: 100,
+			voteRatio: 0.5,
+			author: 'Jane Doe'
+		},
 		isProArgument: true,
 		weight: 0.8,
 		numberOfVotes: 100,
@@ -103,8 +247,24 @@ export const connections: IConnection[] = [
 	{
 		id: '1',
 		type: 'connection',
-		thesisId: '1',
-		argumentId: '1',
+		thesis: {
+			id: '1',
+			type: 'statement',
+			text: 'The earth is round',
+			lastSeasonTruth: 0.9,
+			numberOfVotes: 100,
+			voteRatio: 0.5,
+			author: 'Jane Doe'
+		},
+		argument: {
+			id: '1',
+			type: 'statement',
+			text: 'The earth is round',
+			lastSeasonTruth: 0.9,
+			numberOfVotes: 100,
+			voteRatio: 0.5,
+			author: 'Jane Doe'
+		},
 		isProArgument: true,
 		weight: 0.8,
 		numberOfVotes: 100,
@@ -114,8 +274,24 @@ export const connections: IConnection[] = [
 	{
 		id: '1',
 		type: 'connection',
-		thesisId: '1',
-		argumentId: '1',
+		thesis: {
+			id: '1',
+			type: 'statement',
+			text: 'The earth is round',
+			lastSeasonTruth: 0.9,
+			numberOfVotes: 100,
+			voteRatio: 0.5,
+			author: 'Jane Doe'
+		},
+		argument: {
+			id: '1',
+			type: 'statement',
+			text: 'The earth is round',
+			lastSeasonTruth: 0.9,
+			numberOfVotes: 100,
+			voteRatio: 0.5,
+			author: 'Jane Doe'
+		},
 		isProArgument: false,
 		weight: 0.7,
 		numberOfVotes: 100,
@@ -125,8 +301,24 @@ export const connections: IConnection[] = [
 	{
 		id: '1',
 		type: 'connection',
-		thesisId: '1',
-		argumentId: '1',
+		thesis: {
+			id: '1',
+			type: 'statement',
+			text: 'The earth is round',
+			lastSeasonTruth: 0.9,
+			numberOfVotes: 100,
+			voteRatio: 0.5,
+			author: 'Jane Doe'
+		},
+		argument: {
+			id: '1',
+			type: 'statement',
+			text: 'The earth is round',
+			lastSeasonTruth: 0.9,
+			numberOfVotes: 100,
+			voteRatio: 0.5,
+			author: 'Jane Doe'
+		},
 		isProArgument: true,
 		weight: 0.8,
 		numberOfVotes: 100,
@@ -136,8 +328,24 @@ export const connections: IConnection[] = [
 	{
 		id: '1',
 		type: 'connection',
-		thesisId: '1',
-		argumentId: '1',
+		thesis: {
+			id: '1',
+			type: 'statement',
+			text: 'The earth is round',
+			lastSeasonTruth: 0.9,
+			numberOfVotes: 100,
+			voteRatio: 0.5,
+			author: 'Jane Doe'
+		},
+		argument: {
+			id: '1',
+			type: 'statement',
+			text: 'The earth is round',
+			lastSeasonTruth: 0.9,
+			numberOfVotes: 100,
+			voteRatio: 0.5,
+			author: 'Jane Doe'
+		},
 		isProArgument: false,
 		weight: 0.6,
 		numberOfVotes: 100,
@@ -147,8 +355,24 @@ export const connections: IConnection[] = [
 	{
 		id: '1',
 		type: 'connection',
-		thesisId: '1',
-		argumentId: '1',
+		thesis: {
+			id: '1',
+			type: 'statement',
+			text: 'The earth is round',
+			lastSeasonTruth: 0.9,
+			numberOfVotes: 100,
+			voteRatio: 0.5,
+			author: 'Jane Doe'
+		},
+		argument: {
+			id: '1',
+			type: 'statement',
+			text: 'The earth is round',
+			lastSeasonTruth: 0.9,
+			numberOfVotes: 100,
+			voteRatio: 0.5,
+			author: 'Jane Doe'
+		},
 		isProArgument: true,
 		weight: 0.8,
 		numberOfVotes: 100,
@@ -158,8 +382,24 @@ export const connections: IConnection[] = [
 	{
 		id: '1',
 		type: 'connection',
-		thesisId: '1',
-		argumentId: '1',
+		thesis: {
+			id: '1',
+			type: 'statement',
+			text: 'The earth is round',
+			lastSeasonTruth: 0.9,
+			numberOfVotes: 100,
+			voteRatio: 0.5,
+			author: 'Jane Doe'
+		},
+		argument: {
+			id: '1',
+			type: 'statement',
+			text: 'The earth is round',
+			lastSeasonTruth: 0.9,
+			numberOfVotes: 100,
+			voteRatio: 0.5,
+			author: 'Jane Doe'
+		},
 		isProArgument: false,
 		weight: 0.75,
 		numberOfVotes: 100,
@@ -169,8 +409,24 @@ export const connections: IConnection[] = [
 	{
 		id: '1',
 		type: 'connection',
-		thesisId: '1',
-		argumentId: '1',
+		thesis: {
+			id: '1',
+			type: 'statement',
+			text: 'The earth is round',
+			lastSeasonTruth: 0.9,
+			numberOfVotes: 100,
+			voteRatio: 0.5,
+			author: 'Jane Doe'
+		},
+		argument: {
+			id: '1',
+			type: 'statement',
+			text: 'The earth is round',
+			lastSeasonTruth: 0.9,
+			numberOfVotes: 100,
+			voteRatio: 0.5,
+			author: 'Jane Doe'
+		},
 		isProArgument: true,
 		weight: 0.8,
 		numberOfVotes: 100,
@@ -180,8 +436,24 @@ export const connections: IConnection[] = [
 	{
 		id: '1',
 		type: 'connection',
-		thesisId: '1',
-		argumentId: '1',
+		thesis: {
+			id: '1',
+			type: 'statement',
+			text: 'The earth is round',
+			lastSeasonTruth: 0.9,
+			numberOfVotes: 100,
+			voteRatio: 0.5,
+			author: 'Jane Doe'
+		},
+		argument: {
+			id: '1',
+			type: 'statement',
+			text: 'The earth is round',
+			lastSeasonTruth: 0.9,
+			numberOfVotes: 100,
+			voteRatio: 0.5,
+			author: 'Jane Doe'
+		},
 		isProArgument: false,
 		weight: 0.65,
 		numberOfVotes: 100,
@@ -191,8 +463,24 @@ export const connections: IConnection[] = [
 	{
 		id: '1',
 		type: 'connection',
-		thesisId: '1',
-		argumentId: '1',
+		thesis: {
+			id: '1',
+			type: 'statement',
+			text: 'The earth is round',
+			lastSeasonTruth: 0.9,
+			numberOfVotes: 100,
+			voteRatio: 0.5,
+			author: 'Jane Doe'
+		},
+		argument: {
+			id: '1',
+			type: 'statement',
+			text: 'The earth is round',
+			lastSeasonTruth: 0.9,
+			numberOfVotes: 100,
+			voteRatio: 0.5,
+			author: 'Jane Doe'
+		},
 		isProArgument: true,
 		weight: 0.8,
 		numberOfVotes: 100,
@@ -202,8 +490,24 @@ export const connections: IConnection[] = [
 	{
 		id: '1',
 		type: 'connection',
-		thesisId: '1',
-		argumentId: '1',
+		thesis: {
+			id: '1',
+			type: 'statement',
+			text: 'The earth is round',
+			lastSeasonTruth: 0.9,
+			numberOfVotes: 100,
+			voteRatio: 0.5,
+			author: 'Jane Doe'
+		},
+		argument: {
+			id: '1',
+			type: 'statement',
+			text: 'The earth is round',
+			lastSeasonTruth: 0.9,
+			numberOfVotes: 100,
+			voteRatio: 0.5,
+			author: 'Jane Doe'
+		},
 		isProArgument: false,
 		weight: 0.7,
 		numberOfVotes: 100,
@@ -213,8 +517,24 @@ export const connections: IConnection[] = [
 	{
 		id: '1',
 		type: 'connection',
-		thesisId: '1',
-		argumentId: '1',
+		thesis: {
+			id: '1',
+			type: 'statement',
+			text: 'The earth is round',
+			lastSeasonTruth: 0.9,
+			numberOfVotes: 100,
+			voteRatio: 0.5,
+			author: 'Jane Doe'
+		},
+		argument: {
+			id: '1',
+			type: 'statement',
+			text: 'The earth is round',
+			lastSeasonTruth: 0.9,
+			numberOfVotes: 100,
+			voteRatio: 0.5,
+			author: 'Jane Doe'
+		},
 		isProArgument: true,
 		weight: 0.8,
 		numberOfVotes: 100,
@@ -224,8 +544,24 @@ export const connections: IConnection[] = [
 	{
 		id: '1',
 		type: 'connection',
-		thesisId: '1',
-		argumentId: '1',
+		thesis: {
+			id: '1',
+			type: 'statement',
+			text: 'The earth is round',
+			lastSeasonTruth: 0.9,
+			numberOfVotes: 100,
+			voteRatio: 0.5,
+			author: 'Jane Doe'
+		},
+		argument: {
+			id: '1',
+			type: 'statement',
+			text: 'The earth is round',
+			lastSeasonTruth: 0.9,
+			numberOfVotes: 100,
+			voteRatio: 0.5,
+			author: 'Jane Doe'
+		},
 		isProArgument: false,
 		weight: 0.6,
 		numberOfVotes: 100,
@@ -235,8 +571,24 @@ export const connections: IConnection[] = [
 	{
 		id: '1',
 		type: 'connection',
-		thesisId: '1',
-		argumentId: '1',
+		thesis: {
+			id: '1',
+			type: 'statement',
+			text: 'The earth is round',
+			lastSeasonTruth: 0.9,
+			numberOfVotes: 100,
+			voteRatio: 0.5,
+			author: 'Jane Doe'
+		},
+		argument: {
+			id: '1',
+			type: 'statement',
+			text: 'The earth is round',
+			lastSeasonTruth: 0.9,
+			numberOfVotes: 100,
+			voteRatio: 0.5,
+			author: 'Jane Doe'
+		},
 		isProArgument: true,
 		weight: 0.8,
 		numberOfVotes: 100,
@@ -246,8 +598,24 @@ export const connections: IConnection[] = [
 	{
 		id: '1',
 		type: 'connection',
-		thesisId: '1',
-		argumentId: '1',
+		thesis: {
+			id: '1',
+			type: 'statement',
+			text: 'The earth is round',
+			lastSeasonTruth: 0.9,
+			numberOfVotes: 100,
+			voteRatio: 0.5,
+			author: 'Jane Doe'
+		},
+		argument: {
+			id: '1',
+			type: 'statement',
+			text: 'The earth is round',
+			lastSeasonTruth: 0.9,
+			numberOfVotes: 100,
+			voteRatio: 0.5,
+			author: 'Jane Doe'
+		},
 		isProArgument: false,
 		weight: 0.75,
 		numberOfVotes: 100,
@@ -257,8 +625,24 @@ export const connections: IConnection[] = [
 	{
 		id: '1',
 		type: 'connection',
-		thesisId: '1',
-		argumentId: '1',
+		thesis: {
+			id: '1',
+			type: 'statement',
+			text: 'The earth is round',
+			lastSeasonTruth: 0.9,
+			numberOfVotes: 100,
+			voteRatio: 0.5,
+			author: 'Jane Doe'
+		},
+		argument: {
+			id: '1',
+			type: 'statement',
+			text: 'The earth is round',
+			lastSeasonTruth: 0.9,
+			numberOfVotes: 100,
+			voteRatio: 0.5,
+			author: 'Jane Doe'
+		},
 		isProArgument: true,
 		weight: 0.8,
 		numberOfVotes: 100,

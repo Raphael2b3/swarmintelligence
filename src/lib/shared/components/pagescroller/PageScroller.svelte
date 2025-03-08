@@ -1,60 +1,53 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import * as Statement from '$lib/features/statement';
-	import { statements } from '$lib/database/statements/data';
-	let { pageBuilder, dataProxy } = $props();
+	let { previousWidget, currentWidget, nextWidget, onLoadNext, onLoadPrevious } = $props();
 
 	let scrollDiv: HTMLDivElement;
 	let previosContainer: HTMLDivElement;
 	let currentContainer: HTMLDivElement;
 	let nextContainer: HTMLDivElement;
-
+	let counter = $state(0);
+	$inspect({ counter });
 	const intersectingHandler = (
 		entries: IntersectionObserverEntry[],
 		observer: IntersectionObserver
 	) => {
 		entries.forEach((entry) => {
-			console.log(entry);
 			if (entry.isIntersecting) {
-				if (entry.target.id === 'prev') {
-					console.log('prev');
-					const tmp = next;
-					next = current;
-					current = previous;
-					previous = tmp;
+				if (entry.target.id === 'prev' && counter > 0) {
+					counter--;
+					onLoadPrevious();
 				} else if (entry.target.id === 'next') {
-					const tmp = previous;
-					previous = current;
-					current = next;
-					next = tmp;
+					counter++;
+					onLoadNext();
 				}
-				currentContainer.scrollIntoView({ behavior: 'instant' });
+				currentContainer.scrollIntoView({ behavior: counter > 0 ? 'instant' : 'smooth' });
 			}
 		});
 	};
 	onMount(() => {
 		let observer = new IntersectionObserver(intersectingHandler, {
 			root: scrollDiv,
-			threshold: 0.999
+			threshold: 1
 		});
 		observer.observe(previosContainer);
 		observer.observe(nextContainer);
 	});
-
-	let current = $state(statements[0]);
-	let previous = $state(statements[2]);
-	let next = $state(statements[4]);
 </script>
 
-<div bind:this={scrollDiv} class="h-full snap-y snap-mandatory snap-always overflow-y-scroll">
+<!-- the scroll div needs a badding because the Intersection Provider may not work properly  -->
+<div
+	bind:this={scrollDiv}
+	class="no-scrollbar h-full snap-y snap-mandatory snap-always overflow-y-scroll p-0.5"
+>
 	<div bind:this={previosContainer} id="prev" class="h-full w-full snap-end">
-		<Statement.Recommendation statement={previous}></Statement.Recommendation>
+		{@render previousWidget()}
 	</div>
 	<div bind:this={currentContainer} id="curr" class="h-full w-full snap-end">
-		<Statement.Recommendation statement={current}></Statement.Recommendation>
+		{@render currentWidget()}
 	</div>
-	<div bind:this={nextContainer} id="next" class="h-full w-full snap-end bg-amber-900">
-		<Statement.Recommendation statement={next}></Statement.Recommendation>
+	<div bind:this={nextContainer} id="next" class="h-full w-full snap-end">
+		{@render nextWidget()}
 	</div>
 </div>
 

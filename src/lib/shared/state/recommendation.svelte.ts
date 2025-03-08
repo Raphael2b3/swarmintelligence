@@ -1,30 +1,33 @@
 import { getRecommendationDB } from '$lib/database';
-import type { IEntity, IEntityType } from '$lib/shared/interfaces';
-import { getEntity } from './entities.svelte';
+import type { IEntity, IEntityType } from '$lib/shared/types';
 
-class RecommendationManager {
-	constructor() {
-		this.refresh();
-	}
-	recommendationsPool: Record<string, IEntityType> = $state({});
-	index = $state(0);
-	keys = $derived(Object.keys(this.recommendationsPool));
-	id = $derived(this.keys[this.index % this.keys.length]);
-	current_entity?: IEntity = $derived(getEntity(this.id, this.recommendationsPool[this.id]));
+let current: IEntity | undefined = $state(getRecommendationDB());
+let previous: IEntity | undefined = $state(undefined);
+let next: IEntity | undefined = $state(getRecommendationDB());
 
+export const recommendationManager = {
+	loadNext() {
+		console.log('loadNext');
+		// p, c, n = c, n, p;
+		previous = current;
+		current = next;
+		next = getRecommendationDB();
+	},
+
+	loadPrevious() {
+		console.log('loadPrevious');
+		// p, c, n = n, p, c;
+		next = current;
+		current = previous;
+		previous = getRecommendationDB();
+	},
 	get current() {
-		return this.current_entity;
+		return current;
+	},
+	get next() {
+		return next;
+	},
+	get previous() {
+		return previous;
 	}
-	refresh() {
-		this.recommendationsPool = getRecommendationDB();
-		this.index = 0;
-	}
-	getNext() {
-		console.log('dfgnmnhgfdsa');
-		this.index++;
-	}
-	getPrevious() {
-		this.index--;
-	}
-}
-export const recommendationManager = new RecommendationManager();
+};

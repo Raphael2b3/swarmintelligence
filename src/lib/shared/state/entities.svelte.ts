@@ -4,6 +4,7 @@ import {
 	createStatementDB,
 	findConnectiveForDB,
 	getEntityDB,
+	getRecommendationDB,
 	searchForEntitiesDB,
 	voteForEntityDB
 } from '$lib/database';
@@ -35,8 +36,8 @@ export function getFallbackEntity(entityType: IEntityType) {
 export function getFallbackConnection() {
 	return {
 		id: 'fallback',
-		thesisId: 'fallback',
-		argumentId: 'fallback',
+		thesis: getFallbackStatement(),
+		argument: getFallbackStatement(),
 		isProArgument: false,
 		weight: 0,
 		numberOfVotes: 0,
@@ -49,8 +50,8 @@ export function getFallbackDuplication() {
 	return {
 		// return Iduplicationmarker
 		id: 'fallback',
-		statementAId: 'fallback',
-		statementBId: 'fallback',
+		statementA: getFallbackStatement(),
+		statementB: getFallbackStatement(),
 		numberOfVotes: 0,
 		isDuplicateVotes: 0
 	} as IDuplication;
@@ -114,9 +115,8 @@ export function getArgumentsFor(id: string, useCache = true) {
 	let _arguments: IConnection[] = getConnectiveFor(id, 'argument', useCache) as IConnection[];
 	const out: { pros: IStatement[]; cons: IStatement[] } = { pros: [], cons: [] };
 	for (const _argument of _arguments) {
-		const statement = getEntity(_argument.argumentId, 'statement') as IStatement;
-		if (_argument.isProArgument) out.pros.push(statement);
-		else out.cons.push(statement);
+		if (_argument.isProArgument) out.pros.push(_argument.argument);
+		else out.cons.push(_argument.argument);
 	}
 	return out;
 }
@@ -125,9 +125,8 @@ export function getThesisFor(id: string, useCache = true) {
 	let _thesis: IConnection[] = getConnectiveFor(id, 'thesis', useCache) as IConnection[];
 	const out: { pros: IStatement[]; cons: IStatement[] } = { pros: [], cons: [] };
 	for (const _argument of _thesis) {
-		const statement = getEntity(_argument.thesisId, 'statement') as IStatement;
-		if (_argument.isProArgument) out.pros.push(statement);
-		else out.cons.push(statement);
+		if (_argument.isProArgument) out.pros.push(_argument.thesis);
+		else out.cons.push(_argument.thesis);
 	}
 	return out;
 }

@@ -2,9 +2,11 @@ import type {
 	IConnection,
 	IConnectiveType,
 	IDuplication,
+	IEntity,
 	IEntityType,
 	IFilterOptions
 } from '$lib/shared/types';
+import { get } from 'svelte/store';
 import { connections } from './connections/data';
 import { duplictons } from './duplications/data';
 import { statements } from './statements/data';
@@ -21,10 +23,11 @@ export function getEntityDB(id: string, entityType: IEntityType) {
 		}
 		case 'statement': {
 			const i = Math.floor(Math.random() * statements.length);
-			return statements[0];
+			return statements[i];
 		}
 	}
 }
+
 export function findConnectiveForDB(
 	id: string,
 	entity: IConnectiveType,
@@ -42,8 +45,11 @@ export function findConnectiveForDB(
 	}
 }
 
-export function getRecommendationDB(): Record<string, IEntityType> {
-	return { '1': 'statement', '2': 'connection', '3': 'duplication' };
+export function getRecommendationDB(): IEntity {
+	const randomIndex = Math.floor(Math.random() * 3);
+	const types: IEntityType[] = ['statement', 'connection', 'duplication'];
+	const randomType = types[randomIndex];
+	return getEntityDB('1', randomType);
 }
 
 export function getHistoryDB(
