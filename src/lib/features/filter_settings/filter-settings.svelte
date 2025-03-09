@@ -6,7 +6,7 @@
 	import { buttonVariants } from '$lib/components/ui/button';
 	import Icon from '$lib/components/Icon.svelte';
 	// Functions
-	import { filterOptions as options } from '$lib/state/filterOptions.svelte';
+	import { filterOptions as options } from '$lib/providers/filterOptions.svelte';
 	import { cn } from '$lib/utils';
 	function setDefaultOptions() {
 		options['controversial'] = false;
