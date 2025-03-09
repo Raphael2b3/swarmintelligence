@@ -25,7 +25,7 @@
 			<Icon icon="streamline:artificial-intelligence-spark" class="mr-2 h-4 w-4" />
 			<span class="font-bold">Swarmintelligence</span>
 		</MobileLink>
-		<ScrollArea orientation="both" class="my-4 h-[calc(100vh-8rem)] pb-10 pl-6">
+		<ScrollArea orientation="both" class="my-4 h-[calc(100dvh-8rem)] pb-10 pl-6">
 			<div class="flex flex-col space-y-3">
 				{#each docsConfig.mainNav as navItem, index (navItem + index.toString())}
 					{#if navItem.href}

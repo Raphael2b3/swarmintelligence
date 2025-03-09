@@ -28,7 +28,8 @@
 	onMount(() => {
 		let observer = new IntersectionObserver(intersectingHandler, {
 			root: scrollDiv,
-			threshold: 1
+			threshold: 1,
+			rootMargin: '0.2px 90% 0.2px 90%'
 		});
 		observer.observe(previosContainer);
 		observer.observe(nextContainer);
@@ -38,7 +39,7 @@
 <!-- the scroll div needs a badding because the Intersection Provider may not work properly  -->
 <div
 	bind:this={scrollDiv}
-	class="no-scrollbar h-full snap-y snap-mandatory snap-always overflow-y-scroll p-0.5"
+	class="no-scrollbar h-full w-full snap-y snap-mandatory snap-always overflow-y-scroll p-0.5"
 >
 	<div bind:this={previosContainer} id="prev" class="h-full w-full snap-end">
 		{@render previousWidget()}

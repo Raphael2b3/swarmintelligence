@@ -3,8 +3,34 @@
 	import * as Connection from '$lib/features/connection/';
 	import * as Duplication from '$lib/features/duplication/';
 	import PageScroller from '$lib/shared/components/pagescroller/PageScroller.svelte';
-	import { recommendationManager } from '$lib/shared/state/recommendation.svelte';
 	import type { IEntity, IStatement, IConnection, IDuplication } from '$lib/shared/types';
+	import { getRecommendationDB } from '$lib/database';
+	import { historyManager } from '$lib/shared/state/history.svelte';
+
+	let current: IEntity | undefined = $state(getRecommendationDB());
+	let previous: IEntity | undefined = $state(undefined);
+	let next: IEntity | undefined = $state(getRecommendationDB());
+
+	function loadNext() {
+		console.log('loadNext');
+		// p, c, n = c, n, p;
+		previous = current;
+		current = next;
+		next = historyManager.getNext() ?? getRecommendationDB();
+	}
+
+	function loadPrevious() {
+		console.log('loadPrevious');
+		// p, c, n = n, p, c;
+		next = current;
+		current = previous;
+		previous = historyManager.getPrevious();
+	}
+
+	function getCurrent() {
+		historyManager.watch(current);
+		return current;
+	}
 </script>
 
 {#snippet entity(entity: IEntity | undefined)}
@@ -22,18 +48,15 @@
 {/snippet}
 
 <div class="h-full w-full">
-	<PageScroller
-		onLoadNext={recommendationManager.loadNext}
-		onLoadPrevious={recommendationManager.loadPrevious}
-	>
+	<PageScroller onLoadNext={loadNext} onLoadPrevious={loadPrevious}>
 		{#snippet previousWidget()}
-			{@render entity(recommendationManager.previous)}
+			{@render entity(previous)}
 		{/snippet}
 		{#snippet currentWidget()}
-			{@render entity(recommendationManager.current)}
+			{@render entity(getCurrent())}
 		{/snippet}
 		{#snippet nextWidget()}
-			{@render entity(recommendationManager.next)}
+			{@render entity(next)}
 		{/snippet}
 	</PageScroller>
 </div>

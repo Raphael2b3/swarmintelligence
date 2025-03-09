@@ -1,10 +1,4 @@
-import { getHistoryDB } from '$lib/database';
-import type { IEntity, IEntityType } from '$lib/shared/types';
-import { getEntity } from './entities.svelte';
-
-const PAGE_SIZE = 10;
-// history = [ [id,entityType],...]
-
+import type { IEntity } from '$lib/shared/types';
 class HistoryManager {
 	bypass = false;
 	buffer: IEntity[] = [];
@@ -22,7 +16,8 @@ class HistoryManager {
 		return this.buffer[this.index - this.buffer.length - 1];
 	}
 
-	watch(entity: IEntity) {
+	watch(entity: IEntity | undefined) {
+		if (!entity) return;
 		if (this.bypass) return;
 		const index = this.buffer.findIndex((e) => e.id == entity.id);
 		if (index > -1) {

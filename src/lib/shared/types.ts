@@ -1,13 +1,19 @@
+export interface IEntityInteraction {
+	id: string;
+	entityId: string;
+	type: IEntityType;
+	userVote: number;
+	bookmarked: boolean;
+}
+
 export interface IStatement {
 	id: string;
 	type: IEntityType;
-	userVote?: IVoteValue;
 	text: string;
 	lastSeasonTruth: number; // der letzten season
 	numberOfVotes: number;
 	voteRatio: number;
 	author: string;
-	stared?: boolean;
 	tags?: string[];
 }
 export function isIStatement(object: any): object is IStatement {
@@ -35,7 +41,6 @@ export interface IDuplication {
 	type: IEntityType;
 	statementA: IStatement;
 	statementB: IStatement;
-	userVote?: IVoteValue;
 	numberOfVotes: number;
 	isDuplicateVotes: number;
 }
@@ -74,4 +79,3 @@ export type IEntityCache = {
 
 export type IEntityType = 'statement' | 'connection' | 'duplication';
 export type IConnectiveType = 'argument' | 'thesis' | 'duplication';
-export type IVoteValue = 1 | 0 | -1;
