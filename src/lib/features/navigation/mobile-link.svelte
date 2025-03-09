@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import { cn } from '$lib/shared/utils.js';
+	import { cn } from '$lib/utils.js';
 
 	let { href, open = $bindable(), class: className = '', ...props } = $props();
 </script>

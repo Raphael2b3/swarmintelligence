@@ -1,11 +1,9 @@
 <script lang="ts">
-	import * as Statement from '$lib/features/statement/';
-	import * as Connection from '$lib/features/connection';
-	import * as Duplication from '$lib/features/duplication/';
 	import PageScroller from '$lib/components/pagescroller/PageScroller.svelte';
 	import type { IEntity, IStatement, IConnection, IDuplication } from '$lib/types';
 	import { getRecommendationDB } from '$lib/database';
-	import { historyManager } from '$lib/state/history.svelte';
+	import { historyManager } from '$lib/providers/history.svelte';
+	import Recommendation from '$lib/features/recommendation/Recommendation.svelte';
 
 	let current: IEntity | undefined = $state(getRecommendationDB());
 	let previous: IEntity | undefined = $state(undefined);
@@ -33,30 +31,16 @@
 	}
 </script>
 
-{#snippet entity(entity: IEntity | undefined)}
-	{#if entity === undefined}
-		<div class="flex h-full w-full items-center justify-center">
-			<span class="loader"></span>
-		</div>
-	{:else if entity.type === 'statement'}
-		<Statement.Recommendation statement={entity as IStatement} />
-	{:else if entity.type === 'connection'}
-		<Connection.Recommendation connection={entity as IConnection} />
-	{:else if entity.type === 'duplication'}
-		<Duplication.Recommendation duplication={entity as IDuplication} />
-	{/if}
-{/snippet}
-
 <div class="h-full w-full">
 	<PageScroller onLoadNext={loadNext} onLoadPrevious={loadPrevious}>
 		{#snippet previousWidget()}
-			{@render entity(previous)}
+			<Recommendation entity={previous!} />
 		{/snippet}
 		{#snippet currentWidget()}
-			{@render entity(getCurrent())}
+			<Recommendation entity={current!} />
 		{/snippet}
 		{#snippet nextWidget()}
-			{@render entity(next)}
+			<Recommendation entity={next!} />
 		{/snippet}
 	</PageScroller>
 </div>
