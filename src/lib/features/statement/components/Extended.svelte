@@ -1,11 +1,11 @@
 <script lang="ts">
-	import Icon from '$lib/shared/components/Icon.svelte';
-	import Button from '$lib/shared/components/ui/button/button.svelte';
-	import Separator from '$lib/shared/components/ui/separator/separator.svelte';
+	import Icon from '$lib/components/Icon.svelte';
+	import Button from '$lib/components/ui/button/button.svelte';
+	import Separator from '$lib/components/ui/separator/separator.svelte';
 
-	import type { IStatement } from '$lib/shared/types';
+	import type { IEntityInteraction, IStatement } from '$lib/types';
 
-	let { statement }: { statement: IStatement } = $props();
+	let { statement }: { statement: IStatement; userInteraction: IEntityInteraction } = $props();
 </script>
 
 <div class="flex h-full flex-col justify-around">

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { IDuplication } from '$lib/shared/types';
+	import type { IDuplication } from '$lib/types';
 
 	let { duplication }: { duplication: IDuplication } = $props();
 </script>

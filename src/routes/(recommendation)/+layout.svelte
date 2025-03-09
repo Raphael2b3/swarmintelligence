@@ -3,8 +3,8 @@
 	import MainNav from '$lib/features/navigation/main-nav.svelte';
 	import MobileNav from '$lib/features/navigation/mobile-nav.svelte';
 	import Searchbar from '$lib/features/searchbar/Searchbar.svelte';
-	import Icon from '$lib/shared/components/Icon.svelte';
-	import { Button } from '$lib/shared/components/ui/button';
+	import Icon from '$lib/components/Icon.svelte';
+	import { Button } from '$lib/components/ui/button';
 	import { toggleMode, mode } from 'mode-watcher';
 	import { onMount } from 'svelte';
 

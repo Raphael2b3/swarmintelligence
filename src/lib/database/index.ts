@@ -5,7 +5,7 @@ import type {
 	IEntity,
 	IEntityType,
 	IFilterOptions
-} from '$lib/shared/types';
+} from '$lib/types';
 import { get } from 'svelte/store';
 import { connections } from './connections/data';
 import { duplictons } from './duplications/data';

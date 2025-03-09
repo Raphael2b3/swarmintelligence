@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { IConnection } from '$lib/shared/types';
-	import Icon from '$lib/shared/components/Icon.svelte';
-	import Button from '$lib/shared/components/ui/button/button.svelte';
-	import Separator from '$lib/shared/components/ui/separator/separator.svelte';
+	import type { IConnection } from '$lib/types';
+	import Icon from '$lib/components/Icon.svelte';
+	import Button from '$lib/components/ui/button/button.svelte';
+	import Separator from '$lib/components/ui/separator/separator.svelte';
 
 	let { connection }: { connection: IConnection } = $props();
 

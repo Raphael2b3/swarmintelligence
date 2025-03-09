@@ -1,4 +1,4 @@
-import type { IDuplication } from '$lib/shared/types';
+import type { IDuplication } from '$lib/types';
 
 export const duplictons: IDuplication[] = [
 	{

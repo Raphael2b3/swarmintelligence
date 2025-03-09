@@ -1,8 +1,8 @@
 <script lang="ts">
-	import Icon from '$lib/shared/components/Icon.svelte';
-	import { Button } from '$lib/shared/components/ui/button';
-	import * as Sheet from '$lib/shared/components/ui/sheet';
-	import { ScrollArea } from '$lib/shared/components/ui/scroll-area/index.js';
+	import Icon from '$lib/components/Icon.svelte';
+	import { Button } from '$lib/components/ui/button';
+	import * as Sheet from '$lib/components/ui/sheet';
+	import { ScrollArea } from '$lib/components/ui/scroll-area/index.js';
 	import MobileLink from './mobile-link.svelte';
 	import { docsConfig } from '$lib/config/docs';
 

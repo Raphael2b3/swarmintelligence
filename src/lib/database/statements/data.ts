@@ -1,4 +1,4 @@
-import type { IStatement } from '$lib/shared/types';
+import type { IStatement } from '$lib/types';
 
 export const statements: IStatement[] = [
 	{

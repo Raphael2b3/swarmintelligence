@@ -1,11 +1,11 @@
 <script lang="ts">
 	import * as Statement from '$lib/features/statement/';
-	import * as Connection from '$lib/features/connection/';
+	import * as Connection from '$lib/features/connection';
 	import * as Duplication from '$lib/features/duplication/';
-	import PageScroller from '$lib/shared/components/pagescroller/PageScroller.svelte';
-	import type { IEntity, IStatement, IConnection, IDuplication } from '$lib/shared/types';
+	import PageScroller from '$lib/components/pagescroller/PageScroller.svelte';
+	import type { IEntity, IStatement, IConnection, IDuplication } from '$lib/types';
 	import { getRecommendationDB } from '$lib/database';
-	import { historyManager } from '$lib/shared/state/history.svelte';
+	import { historyManager } from '$lib/state/history.svelte';
 
 	let current: IEntity | undefined = $state(getRecommendationDB());
 	let previous: IEntity | undefined = $state(undefined);

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { IStatement } from '$lib/shared/types';
+	import type { IStatement } from '$lib/types';
 
 	let { statement }: { statement: IStatement } = $props();
 </script>

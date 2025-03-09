@@ -2,8 +2,8 @@
 	import { page } from '$app/state';
 	import { siteConfig } from '$lib/config/site';
 	import { docsConfig } from '$lib/config/docs';
-	import Icon from '$lib/shared/components/Icon.svelte';
-	import { cn } from '$lib/shared/utils';
+	import Icon from '$lib/components/Icon.svelte';
+	import { cn } from '$lib/utils';
 </script>
 
 <div class="mr-4 hidden md:flex">

@@ -1,4 +1,4 @@
-import type { IConnection } from '$lib/shared/types';
+import type { IConnection } from '$lib/types';
 
 export const connections: IConnection[] = [
 	{

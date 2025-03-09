@@ -2,9 +2,9 @@
 	import { page } from '$app/state';
 	import { statements } from '$lib/database/statements/data';
 	import * as Statement from '$lib/features/statement';
-	import Icon from '$lib/shared/components/Icon.svelte';
-	import { Button } from '$lib/shared/components/ui/button';
-	import * as Tabs from '$lib/shared/components/ui/tabs';
+	import Icon from '$lib/components/Icon.svelte';
+	import { Button } from '$lib/components/ui/button';
+	import * as Tabs from '$lib/components/ui/tabs';
 	let id = page.params.id;
 	let thesisVisable = $state(false);
 	let argumentVisable = $state(false);

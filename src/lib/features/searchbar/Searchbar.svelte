@@ -1,8 +1,8 @@
 <script lang="ts">
-	import Icon from '$lib/shared/components/Icon.svelte';
-	import Button from '$lib/shared/components/ui/button/button.svelte';
-	import { Input } from '$lib/shared/components/ui/input';
-	import { uistate } from '$lib/shared/state/searchmode.svelte';
+	import Icon from '$lib/components/Icon.svelte';
+	import Button from '$lib/components/ui/button/button.svelte';
+	import { Input } from '$lib/components/ui/input';
+	import { uistate } from '$lib/state/searchmode.svelte';
 
 	let value = $state('');
 	$effect(() => {

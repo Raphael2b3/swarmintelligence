@@ -1,4 +1,4 @@
-import type { IEntityInteraction } from '$lib/shared/types';
+import type { IEntityInteraction } from '$lib/types';
 
 const interactions: IEntityInteraction[] = [
 	{

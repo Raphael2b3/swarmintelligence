@@ -1,13 +1,13 @@
 <script lang="ts">
-	import CheckBoxGroup from '$lib/shared/components/CheckBoxGroup.svelte';
-	import Select from '$lib/shared/components/Select.svelte';
-	import Button from '$lib/shared/components/ui/button/button.svelte';
-	import * as Dialog from '$lib/shared/components/ui/dialog/index.js';
-	import { buttonVariants } from '$lib/shared/components/ui/button';
-	import Icon from '$lib/shared/components/Icon.svelte';
+	import CheckBoxGroup from '$lib/components/CheckBoxGroup.svelte';
+	import Select from '$lib/components/Select.svelte';
+	import Button from '$lib/components/ui/button/button.svelte';
+	import * as Dialog from '$lib/components/ui/dialog/index.js';
+	import { buttonVariants } from '$lib/components/ui/button';
+	import Icon from '$lib/components/Icon.svelte';
 	// Functions
-	import { filterOptions as options } from '$lib/shared/state/filterOptions.svelte';
-	import { cn } from '$lib/shared/utils';
+	import { filterOptions as options } from '$lib/state/filterOptions.svelte';
+	import { cn } from '$lib/utils';
 	function setDefaultOptions() {
 		options['controversial'] = false;
 		options['sortByTruth'] = 'asc';
