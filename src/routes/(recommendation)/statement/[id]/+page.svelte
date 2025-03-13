@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import { statements } from '$lib/database/statements/data';
+	import { statements } from '$lib/features/statement/data';
 	import * as Statement from '$lib/features/statement';
 	import Icon from '$lib/components/Icon.svelte';
 	import { Button } from '$lib/components/ui/button';

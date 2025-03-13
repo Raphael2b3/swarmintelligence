@@ -1,4 +1,4 @@
-import { votes, type IStatementVote } from '$lib/database/statements/votes/data';
+import { votes, type IStatementVote } from '$lib/features/statement/features/vote/data';
 
 // class Vote implements IStatementVote {
 // 	id?: string;
