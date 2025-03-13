@@ -1,11 +1,13 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import { statements } from '$lib/database/statements/data';
 	import * as Statement from '$lib/features/statement';
+	import { Statement as Controller } from '$lib/features/statement/controller';
 	import Icon from '$lib/components/Icon.svelte';
 	import { Button } from '$lib/components/ui/button';
 	import * as Tabs from '$lib/components/ui/tabs';
 	let id = page.params.id;
+	let statement = Controller.get(id);
+
 	let thesisVisable = $state(false);
 	let argumentVisable = $state(false);
 	$effect(() => {});
@@ -27,7 +29,7 @@
 			>Explore Thesis</Icon
 		></Button
 	>
-	<Statement.Extended statement={statements[0]}></Statement.Extended>
+	<Statement.Extended {statement}></Statement.Extended>
 
 	<Button variant="ghost" onclick={() => (argumentVisable = !argumentVisable)}
 		><Icon icon="pajamas:scroll-up" icon2="pajamas:scroll-down" isAlternative={argumentVisable}

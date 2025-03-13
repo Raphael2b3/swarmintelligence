@@ -17,8 +17,7 @@ import type {
 	IStatement,
 	IStatementToConnective,
 	IEntityType,
-	IConnectiveType,
-	IVoteValue
+	IConnectiveType
 } from '$lib/types';
 import { historyManager } from './history.svelte';
 
@@ -303,7 +302,7 @@ export function createConnectionFor(
 	voteForEntityDB(id, 'connection', value);
 }
 
-export function createStatement(text: string, tags: string[], userVote: IVoteValue) {
+export function createStatement(text: string, tags: string[], userVote: number) {
 	const id = createStatementDB(text, tags);
 	voteForEntityDB(id, 'statement', userVote);
 }

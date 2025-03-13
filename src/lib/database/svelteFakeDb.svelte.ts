@@ -19,16 +19,19 @@ class Entity extends baseEntity {
 			Entity.store.splice(i, 1);
 		}
 	}
-	get(id: string) {
+
+	static get(id: string) {
 		return Entity.store.find((entity) => entity.id === id);
 	}
-	update(id: string, entity: T) {
+
+	update(id: string, entity: Entity) {
 		var i = Entity.store.findIndex((entity) => entity.id === id);
 		if (i > -1) {
 			Entity.store[i] = entity;
 		}
 	}
-	find(predicate: (entity: T) => boolean) {
+
+	find(predicate: (entity: Entity) => boolean) {
 		return Entity.store.filter(predicate);
 	}
 

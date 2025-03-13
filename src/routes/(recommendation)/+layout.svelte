@@ -6,12 +6,9 @@
 	import Icon from '$lib/components/Icon.svelte';
 	import { Button } from '$lib/components/ui/button';
 	import { toggleMode, mode } from 'mode-watcher';
-	import { onMount } from 'svelte';
 
 	let { children } = $props();
 	let darkMode = $state(true);
-	let headerElement: HTMLElement | undefined = $state();
-	let content: HTMLElement | undefined = $state();
 
 	mode.subscribe((value) => {
 		darkMode = value === 'dark';
