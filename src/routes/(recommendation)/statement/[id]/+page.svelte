@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import * as Statement from '$lib/features/statement';
-	import { Statement as Controller } from '$lib/features/statement/controller';
+	import Extended from '$lib/features/statement/components/Extended.svelte';
+	import { Statement as Controller } from '$lib/features/statement/statement.svelte';
 	import Icon from '$lib/components/Icon.svelte';
 	import { Button } from '$lib/components/ui/button';
 	import * as Tabs from '$lib/components/ui/tabs';
@@ -29,7 +29,11 @@
 			>Explore Thesis</Icon
 		></Button
 	>
-	<Statement.Extended {statement}></Statement.Extended>
+	{#if statement}
+		<Extended {statement}></Extended>
+	{:else}
+		Not Found
+	{/if}
 
 	<Button variant="ghost" onclick={() => (argumentVisable = !argumentVisable)}
 		><Icon icon="pajamas:scroll-up" icon2="pajamas:scroll-down" isAlternative={argumentVisable}

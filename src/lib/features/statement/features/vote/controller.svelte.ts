@@ -1,40 +1,36 @@
-import { votes, type IStatementVote } from '$lib/database/statements/votes/data';
+export class Vote {
+	static store: Vote[] = [];
 
-// class Vote implements IStatementVote {
-// 	id?: string;
-// 	entityId?: string;
-// 	userVote?: number;
-// }
+	id?: string;
+	statementId?: string = $state();
+	userId?: string = $state();
+	value: number = $state(0);
 
-class StatementVoteController {
-	public getStatementVote(id: string): IStatementVote {
-		let vote = votes.find((vote) => vote.entityId === id);
-		return vote ?? { entityId: id, userVote: 0, id: '' };
+	static externalChange() {}
+
+	constructor(statementId: string, userId: string, value: number) {
+		this.statementId = statementId;
+		this.userId = userId;
+		this.value = value;
+
+		Vote.store.push(this);
 	}
 
-	public updateVote(id: string, userVote: number) {
-		var i = votes.findIndex((vote) => vote.entityId === id);
-		if (i > -1) {
-			votes[i].userVote = userVote;
-		} else {
-			this.createVote(id, userVote);
+	static get(statementId: string, userId: string) {
+		let result = Vote.store.find(
+			(entity) => entity.statementId === statementId && entity.userId === userId
+		);
+		if (!result) {
+			result = new Vote(statementId, userId, 0);
 		}
+		return result;
 	}
 
-	public createVote(id: string, userVote: number) {
-		votes.push({
-			id: id + Math.random(),
-			entityId: id,
-			userVote: userVote
-		});
+	positiveToggle() {
+		this.value = this.value === 1 ? 0 : 1;
 	}
 
-	public deleteVote(id: string) {
-		var i = votes.findIndex((vote) => vote.entityId === id);
-		if (i > -1) {
-			votes.splice(i, 1);
-		}
+	negativeToggle() {
+		this.value = this.value === -1 ? 0 : -1;
 	}
 }
-
-export const statementVoteController = new StatementVoteController();

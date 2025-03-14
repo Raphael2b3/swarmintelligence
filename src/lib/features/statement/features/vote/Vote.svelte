@@ -1,20 +1,19 @@
 <script lang="ts">
 	import Icon from '$lib/components/Icon.svelte';
 	import { Button } from '$lib/components/ui/button';
-	import { votes } from '$lib/database/statements/votes/data';
-	import { statementVoteController } from './controller.svelte';
+	import { Vote } from './controller.svelte';
 	let { statementId } = $props();
-	let vote = statementVoteController.getStatementVote(statementId);
+	let vote = Vote.get(statementId, 'user1');
 </script>
 
 <div class="flex flex-row justify-center gap-7">
-	<Button variant="outline" onclick={() => {}}
-		><Icon icon="mdi:dislike" icon2="mdi:dislike-outlined" isAlternative={vote.userVote >= 0}
+	<Button variant="outline" onclick={vote.negativeToggle}
+		><Icon icon="mdi:dislike" icon2="mdi:dislike-outlined" isAlternative={vote.value >= 0}
 			>False</Icon
 		></Button
 	>
-	<Button
-		><Icon icon="mdi:like" icon2="mdi:like-outlined" isAlternative={vote.userVote <= 0}>True</Icon
+	<Button onclick={vote.positiveToggle}
+		><Icon icon="mdi:like" icon2="mdi:like-outlined" isAlternative={vote.value <= 0}>True</Icon
 		></Button
 	>
 </div>

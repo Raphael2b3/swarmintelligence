@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/state';
 	import { siteConfig } from '$lib/config/site';
-	import { docsConfig } from '$lib/config/docs';
+	import { docsConfig } from '$lib/config/links';
 	import Icon from '$lib/components/Icon.svelte';
 	import { cn } from '$lib/utils';
 </script>

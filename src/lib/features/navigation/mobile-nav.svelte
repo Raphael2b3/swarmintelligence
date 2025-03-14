@@ -4,7 +4,7 @@
 	import * as Sheet from '$lib/components/ui/sheet';
 	import { ScrollArea } from '$lib/components/ui/scroll-area/index.js';
 	import MobileLink from './mobile-link.svelte';
-	import { docsConfig } from '$lib/config/docs';
+	import { docsConfig } from '$lib/config/links';
 
 	let { open = $bindable() } = $props();
 </script>

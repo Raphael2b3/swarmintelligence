@@ -5,7 +5,7 @@
 		children,
 		icon2 = '',
 		icon,
-		isAlternative = $bindable(false),
+		isAlternative = false,
 		...props
 	}: IconProps &
 		SvelteHTMLElements['svg'] & {

@@ -1,7 +1,8 @@
-import type { IEntity } from '$lib/types';
+import type { Entity } from '$lib/abstraction/entity/entity';
+
 class HistoryManager {
 	bypass = false;
-	buffer: IEntity[] = [];
+	buffer: Entity[] = [];
 	index = 0;
 
 	getNext() {
@@ -16,7 +17,7 @@ class HistoryManager {
 		return this.buffer[this.index - this.buffer.length - 1];
 	}
 
-	watch(entity: IEntity | undefined) {
+	watch(entity: Entity | undefined) {
 		if (!entity) return;
 		if (this.bypass) return;
 		const index = this.buffer.findIndex((e) => e.id == entity.id);
