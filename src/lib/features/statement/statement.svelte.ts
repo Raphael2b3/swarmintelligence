@@ -6,7 +6,8 @@ export class Statement {
 
 	static externalChange() {}
 
-	constructor(text: string) {
+	constructor(text: string, id?: string) {
+		this.id = id;
 		this.text = text;
 		Statement.store.push(this);
 	}
@@ -37,3 +38,12 @@ export class Statement {
 		console.log('saving to db');
 	}
 }
+
+new Statement('The earth is flat', '1');
+new Statement('The earth is round', '2');
+new Statement('The earth is a cube', '3');
+new Statement('The earth is a sphere', '4');
+new Statement('The earth is a pyramid', '5');
+new Statement('The earth is a triangle', '6');
+new Statement('The earth is a square', '7');
+new Statement('The earth is a rectangle', '8');
