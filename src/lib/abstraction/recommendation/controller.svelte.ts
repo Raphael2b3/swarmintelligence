@@ -1,4 +1,5 @@
 import type { Entity } from '$lib/abstraction/entity/entity';
+import { Statement } from '$lib/features/statement/statement.svelte';
 import { historyManager } from '$lib/providers/history.svelte';
 
 export class Recommendation {
@@ -11,7 +12,7 @@ export class Recommendation {
 		// p, c, n = c, n, p;
 		this.previous = this.current;
 		this.current = this.next;
-		this.next = historyManager.getNext();
+		this.next = historyManager.getNext() ?? new Statement('New Statement');
 	}
 
 	loadPrevious() {

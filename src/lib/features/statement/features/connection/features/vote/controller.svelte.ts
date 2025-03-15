@@ -2,26 +2,26 @@ export class Vote {
 	static store: Vote[] = [];
 
 	id?: string;
-	statementId?: string = $state();
+	connectionId?: string = $state();
 	userId?: string = $state();
 	value: number = $state(0);
 
 	static externalChange() {}
 
-	constructor(statementId: string, userId: string, value: number) {
-		this.statementId = statementId;
+	constructor(connectionId: string, userId: string, value: number) {
+		this.connectionId = connectionId;
 		this.userId = userId;
 		this.value = value;
 
 		Vote.store.push(this);
 	}
 
-	static get(statementId: string, userId: string) {
+	static get(connectionId: string, userId: string) {
 		let result = Vote.store.find(
-			(entity) => entity.statementId === statementId && entity.userId === userId
+			(entity) => entity.connectionId === connectionId && entity.userId === userId
 		);
 		if (!result) {
-			result = new Vote(statementId, userId, 0);
+			result = new Vote(connectionId, userId, 0);
 		}
 		return result;
 	}

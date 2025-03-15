@@ -3,7 +3,7 @@
 	import Button from '$lib/components/ui/button/button.svelte';
 	import Separator from '$lib/components/ui/separator/separator.svelte';
 	import type { Statement } from '../statement.svelte';
-	import Vote from '../features/vote/Vote.svelte';
+	import Vote from '../features/connection/features/vote/Vote.svelte';
 
 	let { statement }: { statement: Statement } = $props();
 </script>
