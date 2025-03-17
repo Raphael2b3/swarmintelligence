@@ -6,14 +6,14 @@ class HistoryManager {
 	index = 0;
 
 	getNext() {
-		if (this.index + 1 >= this.buffer.length) return;
-		this.index++;
+		if (this.index - 1 < 0) return;
+		this.index--;
 		return this.buffer[this.index - this.buffer.length - 1];
 	}
 
 	getPrevious() {
-		if (this.index - 1 < 0) return;
-		this.index--;
+		if (this.index + 1 >= this.buffer.length) return;
+		this.index++;
 		return this.buffer[this.index - this.buffer.length - 1];
 	}
 

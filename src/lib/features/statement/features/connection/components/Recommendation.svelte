@@ -3,15 +3,14 @@
 	import Button from '$lib/components/ui/button/button.svelte';
 	import Separator from '$lib/components/ui/separator/separator.svelte';
 	import { Statement } from '$lib/features/statement/statement.svelte';
-	import type { Connection } from '../connection.svelte';
+	import { Connection } from '../connection.svelte';
 
-	let { connection }: { connection: Connection } = $props();
-	let thesis = Statement.get(connection.thesisId!);
-	let argument = Statement.get(connection.argumentId!);
+	let { connectionId }: { connectionId: string } = $props();
+	let connection = Connection.get(connectionId);
+	let thesis = Statement.get(connection!.thesisId!);
+	let argument = Statement.get(connection!.argumentId!);
 
-	let value = $state(0.5);
-	let value_indicator = $derived((value * 100).toFixed(2) + '%');
-	const arg_type_str = connection.pro ? 'Pro' : 'Contra';
+	const arg_type_str = connection!.pro ? 'Pro' : 'Contra';
 </script>
 
 {#if thesis && argument}
