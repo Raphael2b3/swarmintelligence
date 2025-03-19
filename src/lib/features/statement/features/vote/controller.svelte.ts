@@ -1,3 +1,4 @@
+import { recommendation } from "$lib/features/recommendation/controller.svelte";
 export class Vote {
 	static store: Vote[] = [];
 
@@ -28,6 +29,7 @@ export class Vote {
 
 	positiveToggle() {
 		this.value = this.value === 1 ? 0 : 1;
+
 	}
 
 	negativeToggle() {

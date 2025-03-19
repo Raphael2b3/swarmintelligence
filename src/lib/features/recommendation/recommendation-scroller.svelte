@@ -1,18 +1,20 @@
 <script lang="ts">
-	import PageScroller from '$lib/components/pagescroller/PageScroller.svelte';
+	import PageScroller from '$lib/features/recommendation/PageScroller.svelte';
 	import RecommendationComponent from '$lib/abstraction/entity/Recommendation.svelte';
 	import { recommendation } from '$lib/features/recommendation/controller.svelte';
-	let _ = $state();
 </script>
 
-<PageScroller onLoadNext={recommendation.loadNext} onLoadPrevious={recommendation.loadPrevious}>
+<PageScroller
+	onLoadNext={() => recommendation.loadNext()}
+	onLoadPrevious={() => recommendation.loadPrevious()}
+>
 	{#snippet previousWidget()}
-		<RecommendationComponent m="prev" entity={recommendation.previous} />
+		<RecommendationComponent entity={recommendation.previous} />
 	{/snippet}
 	{#snippet currentWidget()}
-		<RecommendationComponent m="curr" entity={{ id: '1', type: 'statement' }} />
+		<RecommendationComponent entity={recommendation.current} />
 	{/snippet}
 	{#snippet nextWidget()}
-		<RecommendationComponent m="next" entity={recommendation.next} />
+		<RecommendationComponent entity={recommendation.next} />
 	{/snippet}
 </PageScroller>

@@ -4,15 +4,12 @@
 	import RecommendationConnection from '$lib/features/statement/features/connection/components/Recommendation.svelte';
 	import type { Entity } from './entity';
 
-	let { entity, m = '' }: { entity: Entity | undefined; m: string } = $props();
-	console.log(entity);
+	let { entity }: { entity: Entity | undefined } = $props();
 </script>
 
-{entity?.id}
-{m}
 {#if !entity || !entity.type}
 	<LoadingSpinner></LoadingSpinner>
-{:else if entity.type === 'statement'}>
+{:else if entity.type === 'statement'}
 	<RecommendationStatement statementId={entity.id} />
 {:else if entity.type === 'connection'}
 	<RecommendationConnection connectionId={entity.id} />

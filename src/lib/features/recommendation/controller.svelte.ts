@@ -1,22 +1,20 @@
 import type { Entity } from '$lib/abstraction/entity/entity';
-import { Statement } from '$lib/features/statement/statement.svelte';
 import { historyManager } from '$lib/providers/history.svelte';
 
 class Recommendation {
-	previous?: Entity = $state({ id: '0', type: 'statement' });
+	previous?: Entity = $state();
 	current?: Entity = $state({ id: '0', type: 'statement' });
-	next?: Entity = $state({ id: '0', type: 'statement' });
-
+	next?: Entity = $state({ id: '1', type: 'statement' });
+	counter = $state(0);
+	
 	loadNext() {
 		console.log('loadNext', this.current, this.next, this.previous);
 		// p, c, n = c, n, p;
 
-		//this.previous = this.current;
-		//this.current = this.next;
-
-		this.previous = { id: '0', type: 'statement' };
-		this.current = { id: '0', type: 'statement' };
-		this.next = { id: '0', type: 'statement' };
+		this.previous = this.current;
+		this.current = this.next;
+		const nextId = Math.floor(Math.random() * 9).toString();
+		this.next = { id: nextId, type: 'statement' };
 	}
 
 	loadPrevious() {
@@ -28,6 +26,7 @@ class Recommendation {
 	}
 
 	getCurrent() {
+		console.log('getCurrent', this.current);
 		historyManager.watch(this.current);
 		return this.current;
 	}

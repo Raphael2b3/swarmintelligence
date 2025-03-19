@@ -20,7 +20,11 @@ export class Statement {
 	}
 
 	static get(id: string) {
-		return Statement.store.find((entity) => entity.id === id);
+		console.log('get', id);
+
+		const out = Statement.store.find((entity) => entity.id === id);
+		console.log('out', out);
+		return out;
 	}
 
 	update(id: string, entity: Statement) {
@@ -39,6 +43,7 @@ export class Statement {
 	}
 }
 
+new Statement('The world is bad', '0');
 new Statement('The earth is flat', '1');
 new Statement('The earth is round', '2');
 new Statement('The earth is a cube', '3');

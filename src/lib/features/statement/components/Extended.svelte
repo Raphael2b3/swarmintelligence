@@ -1,11 +1,11 @@
 <script lang="ts">
 	import Separator from '$lib/components/ui/separator/separator.svelte';
 	import { Statement } from '../statement.svelte';
-	import Vote from '../features/connection/features/vote/Vote.svelte';
+	import Vote from '../features/vote/Vote.svelte';
 	import LoadingSpinner from '$lib/components/LoadingSpinner.svelte';
 
 	let { statementId }: { statementId: string } = $props();
-	let statement = Statement.get(statementId);
+	let statement = $derived(Statement.get(statementId));
 </script>
 
 {#if statement}

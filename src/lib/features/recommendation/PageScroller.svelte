@@ -1,13 +1,12 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+	import { onDestroy, onMount } from 'svelte';
 	let { previousWidget, currentWidget, nextWidget, onLoadNext, onLoadPrevious } = $props();
 
 	let scrollDiv: HTMLDivElement;
 	let previosContainer: HTMLDivElement;
 	let currentContainer: HTMLDivElement;
 	let nextContainer: HTMLDivElement;
-	let counter = $state(0);
-	$inspect({ counter });
+	
 	const intersectingHandler = (
 		entries: IntersectionObserverEntry[],
 		observer: IntersectionObserver
@@ -21,10 +20,17 @@
 					counter++;
 					onLoadNext();
 				}
-				currentContainer.scrollIntoView({ behavior: counter > 0 ? 'instant' : 'smooth' });
 			}
 		});
 	};
+	
+	const snapToMid = ()=>{
+		
+		currentContainer.scrollIntoView({ behavior: false ? 'instant' : 'smooth' });
+	}
+	const scrollToNext = ()=>{
+		nextContainer.scrollIntoView({ behavior: 'smooth' });
+	}
 	onMount(() => {
 		let observer = new IntersectionObserver(intersectingHandler, {
 			root: scrollDiv,
@@ -33,6 +39,10 @@
 		});
 		observer.observe(previosContainer);
 		observer.observe(nextContainer);
+	
+	});
+	onDestroy(() => {
+		observer.disconnect();
 	});
 </script>
 
