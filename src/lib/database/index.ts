@@ -7,9 +7,9 @@ import type {
 	IFilterOptions
 } from '$lib/types';
 import { get } from 'svelte/store';
-import { connections } from './connections/data';
-import { duplictons } from './duplications/data';
-import { statements } from './statements/data';
+import { connections } from '../features/statement/features/connection/data';
+import { duplictons } from '../features/statement/features/duplication/data';
+import { statements } from '../features/statement/data';
 
 export function getEntityDB(id: string, entityType: IEntityType) {
 	switch (entityType) {
