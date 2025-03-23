@@ -2,7 +2,7 @@
 	import { page } from '$app/state';
 	import { cn } from '$lib/utils.js';
 
-	let { href, open = $bindable(), class: className = '', ...props } = $props();
+	let { href, open = $bindable(), class: className = '', children, ...props } = $props();
 </script>
 
 <a
@@ -11,5 +11,5 @@
 	onclick={() => (open = false)}
 	{...props}
 >
-	<slot />
+	{@render children()}
 </a>

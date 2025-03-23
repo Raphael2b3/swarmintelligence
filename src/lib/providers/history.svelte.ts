@@ -12,12 +12,12 @@ class HistoryManager {
 	}
 
 	getPrevious() {
-		if (this.index + 1 >= this.buffer.length) return;
+		if (this.index + 1 > this.buffer.length - 1) return;
 		this.index++;
 		return this.buffer[this.index - this.buffer.length - 1];
 	}
 
-	watch(entity: Entity | undefined) {
+	watch(entity: Entity) {
 		if (!entity) return;
 		if (this.bypass) return;
 		const index = this.buffer.findIndex((e) => e.id == entity.id);
