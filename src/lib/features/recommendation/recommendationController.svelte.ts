@@ -10,8 +10,7 @@ class RecommendationController {
 		// p, c, n = c, n, p;
 		this.previous = this.current;
 		this.current = this.next;
-		const nextId = Math.floor(Math.random() * 9).toString();
-		this.next = { id: nextId, type: 'statement' };
+		this.next = historyManager.getNext()?? { id: Math.floor(Math.random() * 9).toString(), type: 'statement' };
 		historyManager.watch(this.previous!);
 	}
 
