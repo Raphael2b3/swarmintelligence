@@ -13,7 +13,6 @@ class Bookmark {
 		this.active = false;
 		this.userId = userId;
 
-		Bookmark.store.push(this);
 	}
 
 	delete(id: string) {
@@ -39,6 +38,7 @@ class Bookmark {
 	}
 
 	save() {
-		console.log('saving to db');
+		
+		Bookmark.store.push(this);
 	}
 }

@@ -9,7 +9,6 @@ export class Statement {
 	constructor(text: string, id?: string) {
 		this.id = id;
 		this.text = text;
-		Statement.store.push(this);
 	}
 
 	delete(id: string) {
@@ -39,16 +38,17 @@ export class Statement {
 	}
 
 	save() {
-		console.log('saving to db');
+		
+		Statement.store.push(this);
 	}
 }
 
-new Statement('The world is bad', '0');
-new Statement('The earth is flat', '1');
-new Statement('The earth is round', '2');
-new Statement('The earth is a cube', '3');
-new Statement('The earth is a sphere', '4');
-new Statement('The earth is a pyramid', '5');
-new Statement('The earth is a triangle', '6');
-new Statement('The earth is a square', '7');
-new Statement('The earth is a rectangle', '8');
+new Statement('The world is bad', '0').save();
+new Statement('The earth is flat', '1').save();
+new Statement('The earth is round', '2').save();
+new Statement('The earth is a cube', '3').save();
+new Statement('The earth is a sphere', '4').save();
+new Statement('The earth is a pyramid', '5').save();
+new Statement('The earth is a triangle', '6').save();
+new Statement('The earth is a square', '7').save();
+new Statement('The earth is a rectangle', '8').save();

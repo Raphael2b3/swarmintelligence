@@ -12,7 +12,6 @@ export class Connection {
 		this.argumentId = argumentId;
 		this.thesisId = thesisId;
 		this.pro = pro;
-		Connection.store.push(this);
 	}
 
 	delete(id: string) {
@@ -38,6 +37,6 @@ export class Connection {
 	}
 
 	save() {
-		console.log('saving to db');
+		Connection.store.push(this);
 	}
 }

@@ -13,8 +13,6 @@ export class Vote {
 		this.connectionId = connectionId;
 		this.userId = userId;
 		this.value = value;
-
-		Vote.store.push(this);
 	}
 
 	static get(connectionId: string, userId: string) {
@@ -23,6 +21,7 @@ export class Vote {
 		);
 		if (!result) {
 			result = new Vote(connectionId, userId, 0);
+			result.save();
 		}
 		return result;
 	}
@@ -30,11 +29,14 @@ export class Vote {
 	positiveToggle() {
 		this.value = this.value === 1 ? 0 : 1;
 		pageScrollController.scrollToNext();
-
 	}
 
 	negativeToggle() {
 		this.value = this.value === -1 ? 0 : -1;
 		pageScrollController.scrollToNext();
+	}
+
+	save() {
+		Vote.store.push(this);
 	}
 }
