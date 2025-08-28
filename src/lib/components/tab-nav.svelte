@@ -12,7 +12,7 @@
 -->
 <nav class="tab-nav">
 	{#each choices as choice}
-		<a href="#" class:active={selected === choice} onclick={() => (selected = choice)}>
+		<a href="#top" class:active={selected === choice} onclick={() => (selected = choice)}>
 			{choice}
 		</a>
 	{/each}

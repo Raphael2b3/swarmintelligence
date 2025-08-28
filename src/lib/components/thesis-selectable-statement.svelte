@@ -1,7 +1,5 @@
 <script lang="ts">
-	import type { IDuplication, IStatement } from '$lib/types';
-	import { getFallbackStatement } from '$lib/providers/entities.svelte';
-	let { statement = getFallbackStatement() }: { statement: IStatement } = $props();
+	let { statement = {text:"Fallback"} } = $props();
 
 	function onContraSelected() {
 		console.log('Contra selected');
