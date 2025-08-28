@@ -2,7 +2,7 @@
 	import Icon from '$lib/components/icon.svelte';
 	import Button from '$lib/components/ui/button/button.svelte';
 	import { Input } from '$lib/components/ui/input';
-	import { uistate } from '$lib/providers/searchmode-provider.svelte';
+	import { uistate } from '$lib/providers/uistate-provider.svelte';
 
 	let value = $state('');
 	$effect(() => {

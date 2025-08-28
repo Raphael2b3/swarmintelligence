@@ -6,12 +6,12 @@
 	import Icon from '$lib/components/icon.svelte';
 	import { Button } from '$lib/components/ui/button';
 	import { toggleMode, mode } from 'mode-watcher';
+	import { uistate } from '$lib/providers/uistate-provider.svelte';
 
 	let { children } = $props();
-	let darkMode = $state(true);
-
+	
 	mode.subscribe((value) => {
-		darkMode = value === 'dark';
+		uistate.darkMode = value === 'dark';
 	});
 </script>
 
@@ -26,7 +26,7 @@
 		<FilterSettings />
 		<Button onclick={toggleMode} variant="outline" size="icon" class="aspect-square">
 			<Icon
-				isAlternative={darkMode}
+				isAlternative={uistate.darkMode}
 				icon="mdi:weather-night"
 				icon2="mdi:weather-sunny"
 				class="h-[1.2rem] w-[1.2rem] scale-100"
