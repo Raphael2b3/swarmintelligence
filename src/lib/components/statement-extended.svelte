@@ -1,8 +1,8 @@
 <script lang="ts">
 	import Separator from '$lib/components/ui/separator/separator.svelte';
-	import { Statement } from '../statement.svelte';
-	import Vote from '../features/vote/Vote.svelte';
-	import LoadingSpinner from '$lib/components/LoadingSpinner.svelte';
+	import { Statement } from '../providers/statement-provider.svelte';
+	import Vote from './statement-vote.svelte';
+	import LoadingSpinner from '$lib/components/loading-spinner.svelte';
 
 	let { statementId }: { statementId: string } = $props();
 	let statement = $derived(Statement.get(statementId));

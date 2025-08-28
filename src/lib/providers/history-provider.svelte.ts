@@ -1,4 +1,4 @@
-import type { Entity } from '$lib/abstraction/entity/entity';
+import type { Entity } from '$lib/types/entity';
 `
 Index can be undefined this means we are in the present
 if index increases we are n steps back in history

@@ -2,7 +2,7 @@
 	import { page } from '$app/state';
 	import { siteConfig } from '$lib/config/site';
 	import { docsConfig } from '$lib/config/links';
-	import Icon from '$lib/components/Icon.svelte';
+	import Icon from '$lib/components/icon.svelte';
 	import { cn } from '$lib/utils';
 </script>
 

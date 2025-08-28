@@ -1,5 +1,5 @@
-import type { Entity } from '$lib/abstraction/entity/entity';
-import { historyManager } from '$lib/providers/history.svelte';
+import type { Entity } from '$lib/types/entity';
+import { historyManager } from '$lib/providers/history-provider.svelte';
 
 class RecommendationController {
 	previous?: Entity = $state();

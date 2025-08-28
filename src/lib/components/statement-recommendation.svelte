@@ -1,10 +1,10 @@
 <script lang="ts">
-	import Icon from '$lib/components/Icon.svelte';
+	import Icon from '$lib/components/icon.svelte';
 	import Button from '$lib/components/ui/button/button.svelte';
 	import Separator from '$lib/components/ui/separator/separator.svelte';
-	import { Statement } from '../statement.svelte';
-	import Vote from '../features/vote/Vote.svelte';
-	import LoadingSpinner from '$lib/components/LoadingSpinner.svelte';
+	import { Statement } from '$lib/providers/statement-provider.svelte';
+	import Vote from '$lib/components/statement-vote.svelte';
+	import LoadingSpinner from '$lib/components/loading-spinner.svelte';
 
 	let { statementId }: { statementId: string } = $props();
 	let statement = $derived(Statement.get(statementId));

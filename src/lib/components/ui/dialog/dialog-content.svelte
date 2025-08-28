@@ -2,7 +2,7 @@
 	import { Dialog as DialogPrimitive } from 'bits-ui';
 	import * as Dialog from './index.js';
 	import { cn, flyAndScale } from '$lib/utils.js';
-	import Icon from '$lib/components/Icon.svelte';
+	import Icon from '$lib/components/icon.svelte';
 
 	type $$Props = DialogPrimitive.ContentProps;
 

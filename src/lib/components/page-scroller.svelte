@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onDestroy, onMount } from 'svelte';
-	import { pageScrollController } from './pageScrollController.svelte';
+	import { pageScrollController } from '$lib/providers/pagescroll-controller-provider.svelte';
 	let {
 		previousWidget,
 		currentWidget,

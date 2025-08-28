@@ -1,13 +1,13 @@
 <script lang="ts">
-	import CheckBoxGroup from '$lib/components/CheckBoxGroup.svelte';
-	import Select from '$lib/components/Select.svelte';
+	import Select from '$lib/components/select.svelte';
 	import Button from '$lib/components/ui/button/button.svelte';
 	import * as Dialog from '$lib/components/ui/dialog/index.js';
 	import { buttonVariants } from '$lib/components/ui/button';
-	import Icon from '$lib/components/Icon.svelte';
+	import Icon from '$lib/components/icon.svelte';
 	// Functions
-	import { filterOptions as options } from '$lib/features/filter_settings/filterOptions.svelte';
+	import { filterOptions as options } from '$lib/providers/filteroptions-provider.svelte';
 	import { cn } from '$lib/utils';
+	import CheckboxGroup from './checkbox-group.svelte';
 	function setDefaultOptions() {
 		options['controversial'] = false;
 		options['sortByTruth'] = 'asc';
@@ -82,7 +82,7 @@
 				<input type="checkbox" bind:checked={options.controversial} />
 			</div>
 			Entities
-			<CheckBoxGroup bind:group={options.entitytype} options={checkBoxOptions}></CheckBoxGroup>
+			<CheckboxGroup bind:group={options.entitytype} options={checkBoxOptions}></CheckboxGroup>
 			<div style="display: flex; flex-direction: row;">
 				<Select label="Sort by Truth" bind:value={options.sortByTruth} options={sortdirections}
 				></Select>

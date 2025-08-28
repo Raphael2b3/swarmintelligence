@@ -1,7 +1,7 @@
 <script lang="ts">
-	import Icon from '$lib/components/Icon.svelte';
+	import Icon from '$lib/components/icon.svelte';
 	import { Button } from '$lib/components/ui/button';
-	import { Vote } from './controller.svelte';
+	import { Vote } from '$lib/providers/statement-vote-provider.svelte';
 	let { statementId } = $props();
 	let vote = $derived(Vote.get(statementId, 'user1'));
 </script>

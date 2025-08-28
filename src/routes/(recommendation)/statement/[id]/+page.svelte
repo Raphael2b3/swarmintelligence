@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import Extended from '$lib/features/statement/components/Extended.svelte';
-	import ThesisSearch from '$lib/features/statement/components/ThesisSearch.svelte';
-	import ArgumentSearch from '$lib/features/statement/components/ArgumentSearch.svelte';
+	import Extended from '$lib/components/statement-extended.svelte';
+	import ThesisSearch from '$lib/components/thesis-search.svelte';
+	import ArgumentSearch from '$lib/components/argument-search.svelte';
 	let id = page.params.id;
 </script>
 

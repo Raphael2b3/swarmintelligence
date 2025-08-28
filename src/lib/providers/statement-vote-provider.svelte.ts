@@ -1,4 +1,4 @@
-import { pageScrollController } from '$lib/components/page-scroller/pageScrollController.svelte';
+import { pageScrollController } from '$lib/providers/pagescroll-controller-provider.svelte';
 export class Vote {
 	static store: Vote[] = [];
 
