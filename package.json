@@ -53,7 +53,6 @@
 	},
 	"dependencies": {
 		"@inlang/paraglide-sveltekit": "^0.15.5",
-		"mode-watcher": "^0.5.1",
-		"pocketbase": "^0.25.1"
+		"mode-watcher": "^0.5.1"
 	}
 }

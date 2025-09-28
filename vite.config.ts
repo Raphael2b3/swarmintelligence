@@ -13,11 +13,6 @@ export default defineConfig({
 			outdir: './src/lib/paraglide'
 		})
 	],
-	server: {
-		watch: {
-			ignored: ['**/pocketbase/**']
-		}
-	},
 	test: {
 		workspace: [
 			{
