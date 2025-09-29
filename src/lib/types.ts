@@ -18,7 +18,7 @@ export interface IStatement {
 }
 
 export function isIStatement(object: any): object is IStatement {
-	return object.type == 'statement';
+	return !!object && object.type === 'statement';
 }
 
 export interface IConnection {
@@ -34,7 +34,7 @@ export interface IConnection {
 }
 
 export function isIConnection(object: any): object is IConnection {
-	return object.type == 'connection';
+	return !!object && object.type === 'connection';
 }
 
 export interface IDuplication {
@@ -47,7 +47,7 @@ export interface IDuplication {
 }
 
 export function isIDuplication(object: any): object is IDuplication {
-	return object.type == 'duplication';
+	return !!object && object.type === 'duplication';
 }
 
 export type IEntity = IStatement | IConnection | IDuplication;
