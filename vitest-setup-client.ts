@@ -15,4 +15,18 @@ Object.defineProperty(window, 'matchMedia', {
 	}))
 });
 
+// Mock IntersectionObserver
+Object.defineProperty(window, 'IntersectionObserver', {
+	writable: true,
+	enumerable: true,
+	value: vi.fn().mockImplementation((callback) => ({
+		observe: vi.fn(),
+		disconnect: vi.fn(),
+		unobserve: vi.fn(),
+		root: null,
+		rootMargin: '0px',
+		thresholds: [0]
+	}))
+});
+
 // add more mocks here if you need them
